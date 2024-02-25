@@ -1,21 +1,21 @@
 <template>
-   <header class="bg-white">
-     <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
-       <div class="flex lg:flex-1">
+   <header class="fixed text-white w-full pt-2 backdrop-blur-xl z-40">
+     <nav class="mx-auto max-w-7xl flex items-center justify-between lg:px-8" aria-label="Global">
+       <div class="flex lg:flex-0">
          <a href="#" class="-m-1.5 p-1.5">
            <span>NaVi Cleaning</span>
            <!-- <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="" /> -->
          </a>
        </div>
        <div class="flex lg:hidden">
-         <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700" @click="mobileMenuOpen = true">
+         <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-100" @click="mobileMenuOpen = true">
            <span class="sr-only">Open main menu</span>
            <Bars3Icon class="h-6 w-6" aria-hidden="true" />
          </button>
        </div>
        <PopoverGroup class="hidden lg:flex lg:gap-x-12">
          <Popover class="relative">
-           <PopoverButton class="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
+           <PopoverButton class="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-100">
              Product
              <ChevronDownIcon class="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
            </PopoverButton>
@@ -46,12 +46,12 @@
            </transition>
          </Popover>
  
-         <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Features</a>
-         <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Marketplace</a>
-         <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Company</a>
+         <a href="#" class="text-sm font-semibold leading-6 text-gray-100">Features</a>
+         <a href="#" class="text-sm font-semibold leading-6 text-gray-100">Marketplace</a>
+         <a href="#" class="text-sm font-semibold leading-6 text-gray-100">Company</a>
        </PopoverGroup>
-       <div class="hidden lg:flex lg:flex-1 flex-col items-center lg:justify-end">
-         <a href="tel:89773788955" class="text-sm font-semibold leading-6 text-gray-900">8- 977-378-89-55</a>
+       <div class="hidden lg:flex flex-col items-center lg:justify-end">
+         <a href="tel:89773788955" class="text-sm font-semibold leading-6 text-gray-100">8- 977-378-89-55</a>
          <defButton class="bg-dev-10 text-txt-100">Оставить заявку</defButton>
        </div>
      </nav>

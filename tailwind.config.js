@@ -17,7 +17,15 @@ export default {
     },
     fontFamily: {
       kyiv: ['KyivType Serif', 'Serif']
-    }
+    }, 
+    screens: {
+        xs: "614px",
+        s: "769px",
+        sm: "1002px",
+        md: "1022px",
+        lg: "1092px",
+        xl: "1280px"
+    },
   },
   plugins: [],
   purge: ['./index.html', './src/**/*.{vue,js}']
