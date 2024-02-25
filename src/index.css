@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+   font-family: "KyivType Serif";
+   src: url('../public/fonts/kyivtype-serif-regular3.ttf');
+}
