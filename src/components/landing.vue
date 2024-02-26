@@ -31,7 +31,7 @@
           <h3 class="uppercase text-dev-300 text-xl sm:text-2xl text-center my-4">Любой тип клининга</h3>
           <p class="text-txt-100 text-center sm:text-end px text-[15px]">NaVi – это компания, специализирующаяся на уборке, которая находится в Москве. Мы предлагаем услуги премиум-класса по уборке различной сложности и масштаба. Наша компания оказывает услуги как для частных лиц, так и для бизнеса. Мы готовы организовать одноразовую срочную уборку квартиры или предоставить полномасштабную аутсорсинговую клининговую поддержку для вашего бизнеса. Мы уверены в нашей способности выполнить любую задачу, связанную с уборкой, и сделать это на самом высоком уровне качества.</p>
         </div>
-        <div class="flex flex-col mx-2 sm:absolute sm:top-[720px] xl:top-[650px] xl:mr-14 min-w-20 sm:max-w-[404px] rounded-3xl p-4 shadow-2xl bg-white">
+        <div class="flex flex-col mx-2 mb-2 sm:absolute sm:top-[720px] xl:top-[650px] xl:mr-14 min-w-20 sm:max-w-[404px] rounded-3xl p-4 shadow-2xl bg-white">
           <h3 class="uppercase text-dev-300 text-xl sm:text-2xl text-center my-4">Честная цена</h3>
           <p class="text-txt-100 text-center px text-[15px]">Наши цены на уборку визиток клининг-компании всегда честны и прозрачны. Мы стремимся предоставлять нашим клиентам высококачественные услуги по доступной цене. Мы учитываем все особенности и масштабы каждой задачи, чтобы предложить наиболее выгодные условия. При работе с нами вы можете быть уверены, что каждый рубль, потраченный на наши услуги, будет оправдан качеством работы и вниманием к деталям.</p>
         </div>
@@ -42,7 +42,7 @@
     <div class="w-full bg-dev-100">
       <div class="max-w-7xl mx-auto flex flex-col m-14 sm:mt-36 relative justify-between gap-32 sm:gap-0 min-h-96">
         <div class="flex flex-col items-center z-10">
-          <h2 class="uppercase text-center text-5xl sm:text-6xl self-center bg-dev-100 font-light text-[#4A4A4A]">Уборка квартиры</h2>
+          <h2 class="uppercase text-center text-4xl sm:text-6xl self-center bg-dev-100 font-light text-[#4A4A4A]">Уборка квартиры</h2>
           <p class="self-center text-2xl sm:text-3xl mt-10 sm:mt-6 text-[#333333] bg-dev-100 font-light">от 2966 рублей</p>
         </div>
         <img src="/img/kalendar.png" class="w-96 h-96 sm:ml-48 sm:mt-4 mix-blend-difference self-center absolute" alt="">
@@ -57,7 +57,7 @@
     <!-- ДОДЕЛАТЬ -->
     <div class="w-full bg-dev-50">
       <div class="max-w-7xl mt-20 mx-auto flex flex-col items-center">
-        <h4 class="uppercase text-5xl font-medium text-dev-300 mb-8">Что мы делаем</h4>
+        <h4 class="uppercase text-4xl xs:text-5xl text-center font-medium text-dev-300 mb-8">Что мы делаем</h4>
         <img src="/img/spalnya-slider.png" class="mb-[337px]" alt="">
         <defButton class="bg-dev-300 text-3xl text-white px-6 py-3 mb-[113px]">Оставить заявку</defButton>
       </div>
@@ -70,9 +70,9 @@
       <div class="max-w-7xl mx-auto mt-24 flex flex-col items-center">
         <h4 class="uppercase text-3xl text-center sm:text-5xl text-dev-300 font-medium mb-20">Популярные услуги</h4>
         <div class="flex flex-row flex-wrap sm:flex-nowrap items-center justify-between w-full gap-10">
-          <div v-for="(service, index) in popularServices" :key="index" class="w-full sm:w-1/3 xl:w-1/4 bg-[#FCFCFC] border border-[#999999] shadow-2xl rounded-3xl flex flex-col items-center">
+          <div v-for="(service, index) in popularServices" :key="index" class="w-full mx-2 sm:mx-0 sm:w-1/3 xl:w-1/4 bg-[#FCFCFC] border border-[#999999] shadow-2xl rounded-3xl flex flex-col items-center">
             <img :src="service.img" class="w-full" alt="service picture">
-            <h3 class="uppercase text-lg">{{ service.title }}</h3>
+            <h3 class="uppercase text-lg font-medium mt-2">{{ service.title }}</h3>
             <p class="text-[15px] font-light mt-1 mb-4">от {{ service.price }}₽</p>
             <defButton class="bg-dev-300 text-white w-28 mb-3">Заказать</defButton>
           </div>
@@ -84,7 +84,7 @@
     <!-- PRICES -->
     <div class="w-full bg-dev-100">
       <div class="max-w-7xl mx-auto flex flex-col sm:flex-row min-h-64 sm:items-end items-center sm:justify-end relative">
-        <div class="flex flex-col bg-white rounded-2xl p-4 order-2 shadow-2xl sm:absolute left-14 top-12">
+        <div class="flex flex-col bg-white rounded-2xl p-4 order-2 shadow-2xl sm:absolute left-14 top-12 mx-2 mb-1">
           <h5 class="font-light text-dev-300 text-2xl mb-8">Тарифы и цены</h5>
           <p class="text-base text-txt-200 sm:max-w-xl xl:max-w-2xl">У нас есть различные тарифы, которые подходят для любой ситуации в вашей квартире, будь то после вечеринки, пожара или ремонта. Мы можем подобрать решение, которое подходит для холостяков, семей или владельцев домашних животных. При расчете стоимости мы учитываем площадь и количество помещений, а также местоположение дома (Москва или Московская область). Кроме того, мы учитываем срочность заказа. Наш профессиональный инструментарий позволяет предлагать услуги как частным лицам, так и владельцам офисов и коммерческих объектов. После проведения расчетов, цена фиксируется в официальном договоре. Для того, чтобы в вашей квартире всегда был порядок и чистота, достаточно лишь позвонить нам. Доверьтесь профессионалам клининговой компании NaVi!</p>
         </div>
@@ -120,16 +120,41 @@
     <!-- RATES -->
     <div class="w-full bg-dev-100">
       <div class="max-w-7xl mx-auto flex flex-col items-center">
-        <h5 class="uppercase text-4xl text-white font-bold shadow-sm mt-24 mb-24">Отзывы наших клиентов</h5>
+        <h5 class="uppercase text-3xl xs:text-4xl text-white text-center font-bold shadow-sm mt-24 mb-24">Отзывы наших клиентов</h5>
         <div class="flex flex-col mb-8">
-          <div v-for="(rate, index) in rates" :key="index" class="bg-white rounded-3xl flex flex-col max-w-3xl shadow-2xl justify-between gap-4 p-4" :class="index === 1 ? 'translate-x-60 -my-5 z-20' : '-translate-x-60'">
+          <div v-for="(rate, index) in rates" :key="index" class="bg-white mx-2 rounded-3xl flex flex-col max-w-xl sm:max-w-3xl shadow-2xl justify-between gap-4 p-4" :class="index === 1 ? 'xs:translate-x-4 sm:translate-x-24 xl:translate-x-60 my-4 xs:-my-5 z-20' : 'xs:-translate-x-4 sm:-translate-x-24 xl:-translate-x-60'">
             <div class="flex flex-row items-center gap-4">
               <img :src="rate.img" class="w-14 h-14 bg-gray-500 rounded-full" alt="">
-              <p class="text-xl">{{ rate.name }}</p>
+              <p class="text-lg sm:text-xl">{{ rate.name }}</p>
             </div>
-            <p class="text-lg">{{ rate.text }}</p>
+            <p class="text-base sm:text-lg">{{ rate.text }}</p>
           </div>
         </div>
+      </div>
+    </div>
+
+    <!-- FORM -->
+    <div class="w-full bg-dev-50">
+      <div class="max-w-7xl mx-auto flex flex-col items-center">
+        <h6 class="text-dev-300 text-4xl text-center mt-44 mb-24 mx-2">Оставьте заявку прямо сейчас!</h6>        
+        <form class="w-80 mb-32">
+          <div class="mb-5 mx-2">
+            <label for="name" class="block mb-2 text-sm font-medium text-gray-900">Имя</label>
+            <input type="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" placeholder="Иван" required />
+          </div>
+          <div class="mb-5 mx-2">
+            <label for="phone" class="block mb-2 text-sm font-medium text-gray-900">Номер телефона</label>
+            <input type="phone" id="phone" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" placeholder="+7" required />
+          </div>
+          <div class="flex items-start mb-5 mx-2">
+            <div class="flex items-center h-5">
+              <input id="remember" type="checkbox" value="" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300" required />
+            </div>
+            <label for="remember" class="ms-2 text-sm font-medium text-gray-900">Remember me</label>
+          </div>
+          <defButton type="submit" class="text-white bg-dev-500 focus:outline-none font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center">Подтвердить</defButton>
+        </form>
+
       </div>
     </div>
    </div>
