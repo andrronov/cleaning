@@ -6,12 +6,12 @@
         <h1 class="font-kyiv text-4xl xs:text-7xl mix-blend-overlay font-medium text-white text-center">ЭКО КЛИНИНГ</h1>
         <defButton class="mix-blend-hard-light px-5 py-3 text-lg text-[#555555] bg-[#D9D9D9]">Расчитать стоимость</defButton>
       </div>
-      <img src="/public/img/clean-house-blacked.jpg" class="w-full min-h-screen object-cover" alt="">
+      <img src="/img/clean-house-blacked.jpg" class="w-full min-h-screen object-cover" alt="">
     </div>
 
     <!-- 5 REASONS -->
     <div class="bg-[#FEFDF5] w-full">
-      <div class="h-[867px] max-w-7xl mx-auto relative flex flex-col items-center sm:justify-center gap-4">
+      <div class="h-full sm:h-[867px] max-w-7xl mx-auto relative flex flex-col items-center sm:justify-center gap-4">
         <p class="sm:text-[280px] text-9xl -mt-4 text-dev-100 sm:absolute px-6 sm:px-24 rounded-3xl border-2 border-[#E5E4DC] z-20">5</p>
         <p class="uppercase sm:-mt-14 sm:ml-[154px] text-xl sm:text-2xl text-[#6A6A6A] z-20">Причин почему именно мы</p>
 
@@ -31,9 +31,104 @@
           <h3 class="uppercase text-dev-300 text-xl sm:text-2xl text-center my-4">Любой тип клининга</h3>
           <p class="text-txt-100 text-center sm:text-end px text-[15px]">NaVi – это компания, специализирующаяся на уборке, которая находится в Москве. Мы предлагаем услуги премиум-класса по уборке различной сложности и масштаба. Наша компания оказывает услуги как для частных лиц, так и для бизнеса. Мы готовы организовать одноразовую срочную уборку квартиры или предоставить полномасштабную аутсорсинговую клининговую поддержку для вашего бизнеса. Мы уверены в нашей способности выполнить любую задачу, связанную с уборкой, и сделать это на самом высоком уровне качества.</p>
         </div>
-        <div class="flex flex-col mx-2 sm:absolute sm:top-[720px] xl:top-[670px] min-w-20 sm:max-w-[404px] rounded-3xl p-4 shadow-2xl bg-white">
+        <div class="flex flex-col mx-2 sm:absolute sm:top-[720px] xl:top-[650px] xl:mr-14 min-w-20 sm:max-w-[404px] rounded-3xl p-4 shadow-2xl bg-white">
           <h3 class="uppercase text-dev-300 text-xl sm:text-2xl text-center my-4">Честная цена</h3>
           <p class="text-txt-100 text-center px text-[15px]">Наши цены на уборку визиток клининг-компании всегда честны и прозрачны. Мы стремимся предоставлять нашим клиентам высококачественные услуги по доступной цене. Мы учитываем все особенности и масштабы каждой задачи, чтобы предложить наиболее выгодные условия. При работе с нами вы можете быть уверены, что каждый рубль, потраченный на наши услуги, будет оправдан качеством работы и вниманием к деталям.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CLEAN -->
+    <div class="w-full bg-dev-100">
+      <div class="max-w-7xl mx-auto flex flex-col m-14 sm:mt-36 relative justify-between gap-32 sm:gap-0 min-h-96">
+        <div class="flex flex-col items-center z-10">
+          <h2 class="uppercase text-center text-5xl sm:text-6xl self-center bg-dev-100 font-light text-[#4A4A4A]">Уборка квартиры</h2>
+          <p class="self-center text-2xl sm:text-3xl mt-10 sm:mt-6 text-[#333333] bg-dev-100 font-light">от 2966 рублей</p>
+        </div>
+        <img src="/img/kalendar.png" class="w-96 h-96 sm:ml-48 sm:mt-4 mix-blend-difference self-center absolute" alt="">
+        <div class="flex flex-col items-center gap-4 mb-14 z-10">
+          <p class="text-lg max-w-md text-center bg-dev-100 p">При заказе поддерживающей уборки 1 комнатной квартиры раз в неделю</p>
+          <defButton class="bg-dev-500 w-40 px-5 py-2.5 text-lg">Заказать</defButton>
+        </div>
+      </div>
+    </div>
+
+    <!-- WHAT ARE WE DOING -->
+    <!-- ДОДЕЛАТЬ -->
+    <div class="w-full bg-dev-50">
+      <div class="max-w-7xl mt-20 mx-auto flex flex-col items-center">
+        <h4 class="uppercase text-5xl font-medium text-dev-300 mb-8">Что мы делаем</h4>
+        <img src="/img/spalnya-slider.png" class="mb-[337px]" alt="">
+        <defButton class="bg-dev-300 text-3xl text-white px-6 py-3 mb-[113px]">Оставить заявку</defButton>
+      </div>
+    </div>
+
+    <div class="w-full h-10 bg-dev-300"></div>
+
+    <!-- POPULAR SERVICES -->
+    <div class="w-full bg-dev-50">
+      <div class="max-w-7xl mx-auto mt-24 flex flex-col items-center">
+        <h4 class="uppercase text-3xl text-center sm:text-5xl text-dev-300 font-medium mb-20">Популярные услуги</h4>
+        <div class="flex flex-row flex-wrap sm:flex-nowrap items-center justify-between w-full gap-10">
+          <div v-for="(service, index) in popularServices" :key="index" class="w-full sm:w-1/3 xl:w-1/4 bg-[#FCFCFC] border border-[#999999] shadow-2xl rounded-3xl flex flex-col items-center">
+            <img :src="service.img" class="w-full" alt="service picture">
+            <h3 class="uppercase text-lg">{{ service.title }}</h3>
+            <p class="text-[15px] font-light mt-1 mb-4">от {{ service.price }}₽</p>
+            <defButton class="bg-dev-300 text-white w-28 mb-3">Заказать</defButton>
+          </div>
+        </div>
+        <defButton class="text-white w-44 mt-20 py-3 bg-dev-300 mb-28">Все услуги</defButton>
+      </div>
+    </div>
+
+    <!-- PRICES -->
+    <div class="w-full bg-dev-100">
+      <div class="max-w-7xl mx-auto flex flex-col sm:flex-row min-h-64 sm:items-end items-center sm:justify-end relative">
+        <div class="flex flex-col bg-white rounded-2xl p-4 order-2 shadow-2xl sm:absolute left-14 top-12">
+          <h5 class="font-light text-dev-300 text-2xl mb-8">Тарифы и цены</h5>
+          <p class="text-base text-txt-200 sm:max-w-xl xl:max-w-2xl">У нас есть различные тарифы, которые подходят для любой ситуации в вашей квартире, будь то после вечеринки, пожара или ремонта. Мы можем подобрать решение, которое подходит для холостяков, семей или владельцев домашних животных. При расчете стоимости мы учитываем площадь и количество помещений, а также местоположение дома (Москва или Московская область). Кроме того, мы учитываем срочность заказа. Наш профессиональный инструментарий позволяет предлагать услуги как частным лицам, так и владельцам офисов и коммерческих объектов. После проведения расчетов, цена фиксируется в официальном договоре. Для того, чтобы в вашей квартире всегда был порядок и чистота, достаточно лишь позвонить нам. Доверьтесь профессионалам клининговой компании NaVi!</p>
+        </div>
+        <img src="/img/cleaner.png" class="order-1 mix-blend-multiply max-w-80 max-h-80" alt="">
+      </div>
+    </div>
+
+    <!-- OUR TEAM -->
+    <div class="w-full">
+      <div class="max-w-7xl mt-32 mx-auto flex flex-col items-center mb-48">
+        <h5 class="uppercase text-4xl text-dev-500 text-center">Наша команда</h5>
+        <p class="max-w-2xl sm:max-w-3xl mt-6 text-center mb-20">Наша клининг-команда - настоящие профессионалы своего дела. Мы стремимся к безупречности в своей работе и гарантируем качественную уборку вашего помещения. Наша команда обладает богатым опытом и применяет самые современные технологии, чтобы максимально удовлетворить все ваши потребности. Мы действуем оперативно и ответственно, для обеспечения чистоты и комфорта в вашем доме или офисе.</p>
+        <div class="flex sm:flex-row w-full flex-col items-center justify-center gap-8 relative">
+          <div v-for="(member, index) in team" :key="index" class="flex w-72 sm:w-1/5 z-10 flex-col items-center justify-center">
+            <p class="uppercase text-lg sm:text-base xl:text-lg font-medium mb-4 text-center">{{ member.name }}</p>
+            <img :src="member.img" class="w-full h-96 object-cover" alt="">
+          </div>
+          <div class="w-60 h-60 bg-dev-100 rounded-3xl absolute blur-sm top-4 sm:top-auto sm:left-28 rotate-3"></div>
+          <div class="w-60 h-60 bg-dev-100 rounded-3xl absolute blur-sm bottom-52 sm:bottom-auto sm:right-32 rotate-12"></div>
+          <div class="w-60 h-60 bg-dev-100 rounded-3xl absolute blur-sm top-[330px] sm:top-auto rotate-3"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SERTIFICATES -->
+    <div class="w-full">
+      <div class="max-w-7xl mx-auto">
+        <h5 class="uppercase text-4xl text-dev-500 text-center">Сертификаты</h5>
+        <div class="w-full h-[200px] bg-dev-50"></div>
+      </div>
+    </div>
+
+    <!-- RATES -->
+    <div class="w-full bg-dev-100">
+      <div class="max-w-7xl mx-auto flex flex-col items-center">
+        <h5 class="uppercase text-4xl text-white font-bold shadow-sm mt-24 mb-24">Отзывы наших клиентов</h5>
+        <div class="flex flex-col mb-8">
+          <div v-for="(rate, index) in rates" :key="index" class="bg-white rounded-3xl flex flex-col max-w-3xl shadow-2xl justify-between gap-4 p-4" :class="index === 1 ? 'translate-x-60 -my-5 z-20' : '-translate-x-60'">
+            <div class="flex flex-row items-center gap-4">
+              <img :src="rate.img" class="w-14 h-14 bg-gray-500 rounded-full" alt="">
+              <p class="text-xl">{{ rate.name }}</p>
+            </div>
+            <p class="text-lg">{{ rate.text }}</p>
+          </div>
         </div>
       </div>
     </div>
@@ -43,4 +138,62 @@
 <script setup>
 import headerNav from './navigation/headerNav.vue';
 import defButton from './UI/defButton.vue';
+
+const popularServices = [
+  {
+    title: 'Уборка квартир',
+    price: 3990,
+    img: '/img/kvartira-popserv.png'
+  },
+  {
+    title: 'Уборка коттеджей',
+    price: 3990,
+    img: '/img/kottegei-popserv.png'
+  },
+  {
+    title: 'Уборка офисов',
+    price: 3990,
+    img: '/img/ofisov-popserv.png'
+  },
+  {
+    title: 'Мойка окон',
+    price: 4000,
+    img: '/img/okon-popserv.png'
+  },
+]
+const team = [
+  {
+    name: 'Вита',
+    img: '/img/vita.png',
+  },
+  {
+    name: 'Наталья Алексеевна',
+    img: '/img/natalya-alexeevna.png',
+  },
+  {
+    name: 'Виктория Анатольевна',
+    img: '/img/viktoria-anatolyevna.png',
+  },
+  {
+    name: 'Мадина',
+    img: '/img/madina.png',
+  },
+]
+const rates = [
+  {
+    name: 'Ольга',
+    img: '',
+    text: 'Хочу выразить огромную благодарность клининговой компании за их профессионализм и качественную работу! Весь наш офис блестит после их уборки. Сотрудники компании очень доброжелательны и внимательны к деталям. Мы довольны результатом и будем рекомендовать эту компанию всем нашим коллегам и друзьям!'
+  },
+  {
+    name: 'Алевтина',
+    img: '',
+    text: 'Я была приятно удивлена работой NaVi! Их команда приехала вовремя, с собой привезла все необходимое оборудование и средства для уборки. Благодаря их усилиям, наш дом преобразился: все было тщательно вымыто, пыль убрана, полы вымыты до блеска. Они также оказались очень тщательными в поддержании чистоты в самых труднодоступных уголках.'
+  },
+  {
+    name: 'Дмитрий',
+    img: '',
+    text: 'Клининговая компания просто спасла наш бизнес! Они выполнили уборку нашего помещения в самые кратчайшие сроки и сделали это великолепно. У них были все необходимые инструменты и средства для уборки, и они проявили профессиональный подход к работе. Все наши клиенты заметили разницу и высоко оценили чистоту и порядок. Большое спасибо компании за их эффективность и добросовестность!'
+  },
+]
 </script>
