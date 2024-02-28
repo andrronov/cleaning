@@ -14,7 +14,7 @@
          </button>
        </div>
        <PopoverGroup class="hidden lg:flex lg:gap-x-12">
-         <Popover class="relative">
+         <!-- <Popover class="relative">
            <PopoverButton class="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-100">
              Product
              <ChevronDownIcon class="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
@@ -44,11 +44,12 @@
                </div>
              </PopoverPanel>
            </transition>
-         </Popover>
- 
-         <a href="#" class="text-sm font-semibold leading-6 text-gray-100">Features</a>
-         <a href="#" class="text-sm font-semibold leading-6 text-gray-100">Marketplace</a>
-         <a href="#" class="text-sm font-semibold leading-6 text-gray-100">Company</a>
+         </Popover> -->
+         
+         <a v-for="(link, index) in props.headers" :key="index" :href="link.href" class="text-sm font-semibold leading-6 text-gray-100">{{ link.name }}</a>
+         
+         <!-- <a href="#" class="text-sm font-semibold leading-6 text-gray-100">Marketplace</a>
+         <a href="#" class="text-sm font-semibold leading-6 text-gray-100">Company</a> -->
        </PopoverGroup>
        <div class="hidden lg:flex flex-col items-center lg:justify-end">
          <a href="tel:89773788955" class="text-sm font-semibold leading-6 text-gray-100">8- 977-378-89-55</a>
@@ -131,6 +132,13 @@
  ]
 
 import defButton from '../UI/defButton.vue'
+
+const props = defineProps({
+  headers: {
+    type: Array,
+    require: true
+  }
+})
  
  const mobileMenuOpen = ref(false)
  </script>
