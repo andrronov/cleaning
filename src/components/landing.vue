@@ -59,7 +59,7 @@
         <div class="w-full h-3/5 bottom-48 absolute border-8 border-dev-100 rounded-2xl"></div>
 
           <sliderComponent class="mb-32 mt-10" />
-          <defButton class="bg-dev-300 text-3xl text-white px-5 py-2.5 mb-[113px]">Оставить заявку</defButton>
+          <defButton class="bg-dev-300 text-2xl text-white px-5 py-2.5 mb-[113px]">Оставить заявку</defButton>
         </div>
       </div>
 
@@ -133,7 +133,7 @@
           <div class="flex flex-col mb-8">
             <div v-for="(rate, index) in rates" :key="index" class="bg-white mx-2 rounded-3xl flex flex-col max-w-xl sm:max-w-3xl shadow-2xl justify-between gap-4 p-4" :class="index === 1 ? 'xs:translate-x-4 sm:translate-x-24 xl:translate-x-60 my-4 xs:-my-5 z-20' : 'xs:-translate-x-4 sm:-translate-x-24 xl:-translate-x-60'">
               <div class="flex flex-row items-center gap-4">
-                <img :src="rate.img" class="w-14 h-14 bg-gray-500 rounded-full" alt="">
+                <img :src="rate.img" class="w-14 h-14 bg-gray-500 object-cover rounded-full" alt="">
                 <p class="text-lg sm:text-xl">{{ rate.name }}</p>
               </div>
               <p class="text-base sm:text-lg">{{ rate.text }}</p>
@@ -218,17 +218,17 @@ const team = [
 const rates = [
   {
     name: 'Ольга',
-    img: '',
+    img: '/img/smilewoman.jpg',
     text: 'Хочу выразить огромную благодарность клининговой компании за их профессионализм и качественную работу! Весь наш офис блестит после их уборки. Сотрудники компании очень доброжелательны и внимательны к деталям. Мы довольны результатом и будем рекомендовать эту компанию всем нашим коллегам и друзьям!'
   },
   {
     name: 'Алевтина',
-    img: '',
+    img: '/img/smile-woman.jfif',
     text: 'Я была приятно удивлена работой NaVi! Их команда приехала вовремя, с собой привезла все необходимое оборудование и средства для уборки. Благодаря их усилиям, наш дом преобразился: все было тщательно вымыто, пыль убрана, полы вымыты до блеска. Они также оказались очень тщательными в поддержании чистоты в самых труднодоступных уголках.'
   },
   {
     name: 'Дмитрий',
-    img: '',
+    img: '/img/smiale-man.jfif',
     text: 'Клининговая компания просто спасла наш бизнес! Они выполнили уборку нашего помещения в самые кратчайшие сроки и сделали это великолепно. У них были все необходимые инструменты и средства для уборки, и они проявили профессиональный подход к работе. Все наши клиенты заметили разницу и высоко оценили чистоту и порядок. Большое спасибо компании за их эффективность и добросовестность!'
   },
 ]
