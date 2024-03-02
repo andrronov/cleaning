@@ -53,7 +53,7 @@
        </PopoverGroup>
        <div class="hidden sm:flex flex-col items-center sm:justify-end">
          <a href="tel:89773788955" class="text-sm font-semibold leading-6 text-gray-100">8- 977-378-89-55</a>
-         <defButton class="bg-dev-10 text-txt-100">Оставить заявку</defButton>
+         <defButton @click="toSection('form')" class="bg-dev-10 text-txt-100">Оставить заявку</defButton>
        </div>
      </nav>
      <Dialog as="div" class="sm:hidden" @close="mobileMenuOpen = false" :open="mobileMenuOpen">
@@ -135,6 +135,14 @@
  ]
 
 import defButton from '../UI/defButton.vue'
+
+function toSection(el){
+  const section = document.getElementById(el)
+  section.scrollIntoView({
+    behavior: 'smooth',
+        block: 'start',
+  })
+}
 
 const props = defineProps({
   headers: {

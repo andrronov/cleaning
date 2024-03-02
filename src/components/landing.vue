@@ -3,7 +3,9 @@
       <div class="flex flex-col justify-center items-center">
         <div class="absolute flex flex-col justify-between items-center h-52 mt-20">
           <h1 class="font-kyiv text-4xl xs:text-7xl mix-blend-overlay font-medium text-white text-center">ЭКО КЛИНИНГ</h1>
+          <router-link to="/aaa">
           <defButton class="mix-blend-hard-light px-5 py-3 text-lg text-[#555555] bg-[#D9D9D9]">Расчитать стоимость</defButton>
+          </router-link>
         </div>
         <img src="/img/clean-house-blacked.jpg" class="w-full min-h-screen object-cover" alt="">
       </div>
@@ -68,7 +70,7 @@
       <!-- POPULAR SERVICES -->
       <div class="w-full bg-dev-50">
         <div class="max-w-7xl mx-auto mt-24 flex flex-col items-center">
-          <h4 class="uppercase text-3xl text-center sm:text-5xl text-dev-300 font-medium mb-20">Популярные услуги</h4>
+          <h4 class="uppercase text-3xl text-center sm:text-4xl text-dev-300 font-medium mb-20">Популярные услуги</h4>
           <div class="flex flex-row flex-wrap sm:flex-nowrap items-center justify-between w-full gap-10">
             <div v-for="(service, index) in popularServices" :key="index" class="w-full mx-2 sm:mx-0 sm:w-1/3 xl:w-1/4 bg-[#FCFCFC] border border-[#999999] shadow-2xl rounded-3xl flex flex-col items-center">
               <img :src="service.img" class="w-full" alt="service picture">
@@ -93,7 +95,7 @@
       </div>
 
       <!-- OUR TEAM -->
-      <div class="w-full">
+      <div class="w-full bg-dev-50">
         <div class="max-w-7xl mt-32 mx-auto flex flex-col items-center mb-48">
           <h5 class="uppercase text-4xl text-dev-500 text-center">Наша команда</h5>
           <p class="max-w-2xl sm:max-w-3xl mt-6 text-center mb-20">Наша клининг-команда - настоящие профессионалы своего дела. Мы стремимся к безупречности в своей работе и гарантируем качественную уборку вашего помещения. Наша команда обладает богатым опытом и применяет самые современные технологии, чтобы максимально удовлетворить все ваши потребности. Мы действуем оперативно и ответственно, для обеспечения чистоты и комфорта в вашем доме или офисе.</p>
@@ -110,7 +112,7 @@
       </div>
 
       <!-- SERTIFICATES -->
-      <div class="w-full">
+      <div class="w-full bg-dev-50">
         <div class="max-w-7xl mx-auto">
           <h5 class="uppercase text-3xl sm:text-4xl text-dev-500 text-center mb-24">Сертификаты</h5>
           <p class="text-center text-lg text-gray-600 sm:text-xl mb-4">Нажмите, чтобы приблизить</p>
@@ -139,30 +141,6 @@
               <p class="text-base sm:text-lg">{{ rate.text }}</p>
             </div>
           </div>
-        </div>
-      </div>
-
-      <!-- FORM -->
-      <div class="w-full bg-dev-50">
-        <div class="max-w-7xl mx-auto flex flex-col items-center">
-          <h6 class="text-dev-300 text-4xl text-center mt-44 mb-24 mx-2">Оставьте заявку прямо сейчас!</h6>        
-          <form class="w-80 mb-32">
-            <div class="mb-5 mx-2">
-              <label for="name" class="block mb-2 text-sm font-medium text-gray-900">Имя</label>
-              <input type="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" placeholder="Иван" required />
-            </div>
-            <div class="mb-5 mx-2">
-              <label for="phone" class="block mb-2 text-sm font-medium text-gray-900">Номер телефона</label>
-              <input type="phone" id="phone" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" placeholder="+7" required />
-            </div>
-            <div class="flex items-start mb-5 mx-2">
-              <div class="flex items-center h-5">
-                <input id="remember" type="checkbox" value="" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300" required />
-              </div>
-              <label for="remember" class="ms-2 text-sm font-medium text-gray-900">Remember me</label>
-            </div>
-            <defButton type="submit" class="text-white bg-dev-500 focus:outline-none font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center">Подтвердить</defButton>
-          </form>
         </div>
       </div>
     </defaultLayout>

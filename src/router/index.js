@@ -6,6 +6,11 @@ const routes = [
       name: "landing",
       component: () => import('../components/landing.vue'),
    },
+   {
+      path: "/:id",
+      name: "service",
+      component: () => import('../components/service.vue'),
+   }
 ]
 
 const router = createRouter({

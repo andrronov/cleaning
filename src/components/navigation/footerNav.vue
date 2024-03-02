@@ -1,7 +1,7 @@
 <template>
    <footer class="w-full bg-dev-500">
       <div class="max-w-7xl px-2 mx-auto flex flex-row items-center py-8 text-white justify-between">
-         <h2 class="text-2xl">NaVi Cleaning</h2>
+         <a href="/" class="text-2xl">NaVi Cleaning</a>
          <ul class="hidden flex-row sm:flex items-center gap-2">
             <a v-for="(link, index) in props.headers" :key="index" :href="link.href">{{ link.name }}</a>
          </ul>
