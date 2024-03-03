@@ -35,19 +35,27 @@ import headerNav from '../navigation/headerNav.vue';
 
 const headers = [
   {
-    name: 'Product',
+    name: 'Главная',
     href: '#'
   },
   {
-    name: 'Features',
+    name: 'Услуги',
     href: '#'
   },
   {
-    name: 'Marketplace',
+    name: 'Сертификаты',
     href: '#'
   },
   {
-    name: 'Company',
+    name: 'Цены',
+    href: '#'
+  },
+  {
+    name: 'Типы уборок',
+    href: '#'
+  },
+  {
+    name: 'Контакты',
     href: '#'
   },
 ]
