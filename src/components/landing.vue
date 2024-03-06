@@ -3,7 +3,7 @@
       <div class="flex flex-col justify-center items-center">
         <div class="absolute flex flex-col justify-between items-center h-52 mt-20">
           <h1 class="font-kyiv text-4xl xs:text-7xl mix-blend-overlay font-medium text-white text-center">ЭКО КЛИНИНГ</h1>
-          <router-link to="/aaa">
+          <router-link to="/calculator">
           <defButton class="mix-blend-hard-light px-5 py-3 text-lg text-[#555555] bg-[#D9D9D9]">Расчитать стоимость</defButton>
           </router-link>
         </div>
@@ -76,9 +76,7 @@
               <img :src="service.img" class="w-full" alt="service picture">
               <h3 class="uppercase text-lg font-medium mt-2">{{ service.title }}</h3>
               <p class="text-[15px] font-light mt-1 mb-4">от {{ service.price }}₽</p>
-              <router-link to="/kvartira">
-                <defButton class="bg-dev-300 text-white w-28 mb-3">Заказать</defButton>
-              </router-link>
+              <defButton @click="this.$router.push(service.link)" class="bg-dev-300 text-white w-28 mb-3">Заказать</defButton>
             </div>
           </div>
           <defButton class="text-white w-44 mt-20 py-3 bg-dev-300 mb-28">Все услуги</defButton>
@@ -160,22 +158,25 @@ const popularServices = [
     title: 'Уборка квартир',
     price: 3990,
     img: '/img/kvartira-popserv.png',
-    link: '/kvartira'
+    link: '/apartment'
   },
   {
     title: 'Уборка коттеджей',
     price: 3990,
-    img: '/img/kottegei-popserv.png'
+    img: '/img/kottegei-popserv.png',
+    link: '/cottage'
   },
   {
     title: 'Уборка офисов',
     price: 3990,
-    img: '/img/ofisov-popserv.png'
+    img: '/img/ofisov-popserv.png',
+    link: '/office'
   },
   {
     title: 'Мойка окон',
     price: 4000,
-    img: '/img/okon-popserv.png'
+    img: '/img/okon-popserv.png',
+    link: '/windows'
   },
 ]
 const team = [
