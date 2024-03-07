@@ -97,6 +97,23 @@
          </div>
        </div>
 
+       <!-- SERTIFICATES -->
+      <div id="sertificates" class="w-full bg-dev-50">
+         <div class="max-w-7xl mx-auto">
+           <h5 class="uppercase text-3xl sm:text-4xl text-dev-500 text-center mb-24">Сертификаты</h5>
+           <p class="text-center text-lg text-gray-600 sm:text-xl mb-4">Нажмите, чтобы приблизить</p>
+           <div class="flex flex-col sm:flex-row items-center justify-between w-full mb-12 gap-8 sm:gap-0 px-2">
+             <div @click="openImg(sert.img)" v-for="(sert, index) in sertificates" :key="index" class="relative cursor-pointer sm:mb-80 flex w-40 sm:w-3/12 sm:h-44 flex-col items-center">
+               <img :src="sert.img" alt="sertificate">
+               <defModal :isOpen="opened" @close-modal="opened = false">
+                 <img :src="img" alt="">
+               </defModal>
+               <div class="w-full h-1/4 sm:h-14 absolute bottom-0 sm:-bottom-12"></div>
+             </div>
+           </div>
+         </div>
+       </div>
+
        <div class="bg-dev-500 w-full">
          <div class="max-w-7xl mx-auto flex flex-col items-center">
             <div class="text-white font-semibold flex flex-col gap-2 px-2 py-4 text-base sm:text-lg">
@@ -143,6 +160,7 @@
 <script setup>
 import defaultLayout from './UI/defaultLayout.vue'
 import defButton from './UI/defButton.vue'
+import defModal from './UI/defModal.vue'
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue'
 import { ChevronUpIcon } from '@heroicons/vue/20/solid'
 import { useRoute } from 'vue-router'
@@ -320,6 +338,24 @@ const services = [
       title: 'Мойка окон'
    }
 ]
+
+const sertificates = [
+  {
+    img: '/img/sert1.jpg'
+  },
+  {
+    img: '/img/sert2.jpg'
+  },
+  {
+    img: '/img/sert3.jpg'
+  },
+]
+const opened = ref(false)
+const img = ref(null)
+function openImg(sert){
+  opened.value = true
+  img.value = sert
+}
 
 const serv = services.find(ser => ser.path === route.params.id)
 

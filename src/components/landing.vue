@@ -112,7 +112,7 @@
       </div>
 
       <!-- SERTIFICATES -->
-      <div class="w-full bg-dev-50">
+      <div id="sertificates" class="w-full bg-dev-50">
         <div class="max-w-7xl mx-auto">
           <h5 class="uppercase text-3xl sm:text-4xl text-dev-500 text-center mb-24">Сертификаты</h5>
           <p class="text-center text-lg text-gray-600 sm:text-xl mb-4">Нажмите, чтобы приблизить</p>

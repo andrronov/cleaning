@@ -34,17 +34,17 @@ import footerNav from '../navigation/footerNav.vue';
 import headerNav from '../navigation/headerNav.vue';
 
 const headers = [
-  {
-    name: 'Главная',
-    href: '#'
-  },
-  {
-    name: 'Услуги',
-    href: '#'
-  },
+  // {
+  //   name: 'Главная',
+  //   href: '#'
+  // },
+  // {
+  //   name: 'Услуги',
+  //   href: '#'
+  // },
   {
     name: 'Сертификаты',
-    href: '#'
+    section: 'sertificates'
   },
   {
     name: 'Цены',

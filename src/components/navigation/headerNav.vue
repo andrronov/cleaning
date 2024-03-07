@@ -1,8 +1,8 @@
 <template>
-   <header class="fixed text-white w-full py-6 px-4 sm:py-2 backdrop-blur-xl z-40" :class="mobileMenuOpen ? 'bg-white text-black' : 'bg-gray-700/30'">
+   <header class="fixed w-full py-6 px-4 sm:py-2 backdrop-blur-xl z-40" :class="mobileMenuOpen ? 'bg-white text-black' : 'bg-gray-700/30 text-white'">
      <nav class="mx-auto max-w-7xl flex items-center justify-between sm:px-8" aria-label="Global">
        <div class="flex sm:flex-0">
-         <a href="#" class="-m-1.5 p-1.5">
+         <a href="/" class="-m-1.5 p-1.5">
            <span>NaVi Cleaning</span>
            <!-- <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="" /> -->
          </a>
@@ -14,9 +14,9 @@
          </button>
        </div>
        <PopoverGroup class="hidden sm:flex sm:gap-x-12">
-         <!-- <Popover class="relative">
+         <Popover class="relative">
            <PopoverButton class="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-100">
-             Product
+             Услуги
              <ChevronDownIcon class="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
            </PopoverButton>
  
@@ -28,25 +28,19 @@
                      <component :is="item.icon" class="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
                    </div>
                    <div class="flex-auto">
-                     <a :href="item.href" class="block font-semibold text-gray-900">
+                     <router-link :to="item.href" class="block font-semibold text-gray-900">
                        {{ item.name }}
                        <span class="absolute inset-0" />
-                     </a>
+                     </router-link>
                      <p class="mt-1 text-gray-600">{{ item.description }}</p>
                    </div>
                  </div>
                </div>
-               <div class="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
-                 <a v-for="item in callsToAction" :key="item.name" :href="item.href" class="flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100">
-                   <component :is="item.icon" class="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
-                   {{ item.name }}
-                 </a>
-               </div>
              </PopoverPanel>
            </transition>
-         </Popover> -->
+         </Popover>
          
-         <a v-for="(link, index) in props.headers" :key="index" :href="link.href" class="text-sm font-semibold leading-6 text-gray-100">{{ link.name }}</a>
+         <button v-for="(link, index) in props.headers" :key="index" :href="link.href" @click="link.href ? '' : toSection(link.section)" class="text-sm font-semibold leading-6 text-gray-100">{{ link.name }}</button>
          
          <!-- <a href="#" class="text-sm font-semibold leading-6 text-gray-100">Marketplace</a>
          <a href="#" class="text-sm font-semibold leading-6 text-gray-100">Company</a> -->
@@ -60,10 +54,10 @@
        <div class="fixed inset-0 z-10" />
        <DialogPanel class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
          <div class="flex items-center justify-between">
-           <a href="#" class="-m-1.5 p-1.5">
+           <router-link to="/" class="-m-1.5 p-1.5">
             <span>NaVi Cleaning</span>
              <!-- <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="" /> -->
-           </a>
+           </router-link>
            <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700" @click="mobileMenuOpen = false">
              <span class="sr-only">Close menu</span>
              <XMarkIcon class="h-6 w-6" aria-hidden="true" />
@@ -72,24 +66,24 @@
          <div class="mt-6 flow-root">
            <div class="-my-6 divide-y divide-gray-500/10">
              <div class="space-y-2 py-6">
-               <!-- <Disclosure as="div" class="-mx-3" v-slot="{ open }">
+               <Disclosure as="div" class="-mx-3" v-slot="{ open }">
                  <DisclosureButton class="flex w-full items-center justify-between rounded-sm py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
-                   Product
+                   Услуги
                    <ChevronDownIcon :class="[open ? 'rotate-180' : '', 'h-5 w-5 flex-none']" aria-hidden="true" />
                  </DisclosureButton>
                  <DisclosurePanel class="mt-2 space-y-2">
-                   <DisclosureButton v-for="item in [...products, ...callsToAction]" :key="item.name" as="a" :href="item.href" class="block rounded-sm py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">{{ item.name }}</DisclosureButton>
+                   <DisclosureButton v-for="item in products" :key="item.name" as="button" @click.prevent="item.href ? this.$router.push(item.href) : toSection(item.section)" class="block rounded-sm py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+                    {{ item.name }}
+                  </DisclosureButton>
                  </DisclosurePanel>
                </Disclosure>
-               <a href="#" class="-mx-3 block rounded-sm px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Features</a>
-               <a href="#" class="-mx-3 block rounded-sm px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Marketplace</a> -->
                <!-- <a href="#" class="-mx-3 block rounded-sm px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Company</a> -->
                
-               <a v-for="(link, index) in headers" :key="index" :href="link.href" class="-mx-3 block rounded-sm px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">{{ link.name }}</a>
+               <button v-for="(link, index) in props.headers" @click.prevent="link.href ? this.$router.push(link.href) : toSection(link.section)" :key="index" class="-mx-3 block rounded-sm px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">{{ link.name }}</button>
              </div>
              <div class="py-6">
                <!-- <a href="#" class="-mx-3 block rounded-sm px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Log in</a> -->
-              <defButton class="border-2 border-black -mx-4">Оставить заявку</defButton>
+              <defButton @click="toSection('form')" class="border-2 border-black -mx-4">Оставить заявку</defButton>
               </div>
            </div>
          </div>
@@ -123,27 +117,26 @@
  import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/vue/20/solid'
  
  const products = [
-   { name: 'Analytics', description: 'Get a better understanding of your traffic', href: '#', icon: ChartPieIcon },
-   { name: 'Engagement', description: 'Speak directly to your customers', href: '#', icon: CursorArrowRaysIcon },
-   { name: 'Security', description: 'Your customers’ data will be safe and secure', href: '#', icon: FingerPrintIcon },
-   { name: 'Integrations', description: 'Connect with third-party tools', href: '#', icon: SquaresPlusIcon },
+   { name: 'Уборка в квартире', description: '3 вида уборки', href: '/apartment', icon: ChartPieIcon },
+   { name: 'Уборка в коттедже', description: 'Чистым будет каждый уголок', href: '/cottage', icon: CursorArrowRaysIcon },
+   { name: 'Уборка в офисе', description: 'Для комфорта ваших сотрудников', href: '/office', icon: FingerPrintIcon },
+   { name: 'Мойка окон', description: 'Стекло будет блестеть!', href: '#', icon: SquaresPlusIcon },
    { name: 'Automations', description: 'Build strategic funnels that will convert', href: '#', icon: ArrowPathIcon },
- ]
- const callsToAction = [
-   { name: 'Watch demo', href: '#', icon: PlayCircleIcon },
-   { name: 'Contact sales', href: '#', icon: PhoneIcon },
  ]
 
 import defButton from '../UI/defButton.vue'
 
 function toSection(el){
+  mobileMenuOpen.value = false
   const section = document.getElementById(el)
   section.scrollIntoView({
     behavior: 'smooth',
         block: 'start',
   })
 }
-
+function aaa(){
+  console.log('aaa');
+}
 const props = defineProps({
   headers: {
     type: Array,
