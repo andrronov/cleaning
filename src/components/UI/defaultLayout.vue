@@ -48,7 +48,7 @@ const headers = [
   },
   {
     name: 'Цены',
-    href: '#'
+    href: '/prices'
   },
   {
     name: 'Типы уборок',

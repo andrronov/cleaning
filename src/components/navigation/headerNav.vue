@@ -40,7 +40,7 @@
            </transition>
          </Popover>
          
-         <button v-for="(link, index) in props.headers" :key="index" :href="link.href" @click="link.href ? '' : toSection(link.section)" class="text-sm font-semibold leading-6 text-gray-100">{{ link.name }}</button>
+         <button v-for="(link, index) in props.headers" :key="index" :href="link.href" @click="link.href ? this.$router.push(link.href) : toSection(link.section)" class="text-sm font-semibold leading-6 text-gray-100">{{ link.name }}</button>
          
          <!-- <a href="#" class="text-sm font-semibold leading-6 text-gray-100">Marketplace</a>
          <a href="#" class="text-sm font-semibold leading-6 text-gray-100">Company</a> -->
@@ -120,7 +120,7 @@
    { name: 'Уборка в квартире', description: '3 вида уборки', href: '/apartment', icon: ChartPieIcon },
    { name: 'Уборка в коттедже', description: 'Чистым будет каждый уголок', href: '/cottage', icon: CursorArrowRaysIcon },
    { name: 'Уборка в офисе', description: 'Для комфорта ваших сотрудников', href: '/office', icon: FingerPrintIcon },
-   { name: 'Мойка окон', description: 'Стекло будет блестеть!', href: '#', icon: SquaresPlusIcon },
+   { name: 'Мойка окон', description: 'Стекло будет блестеть!', href: '/windows', icon: SquaresPlusIcon },
    { name: 'Automations', description: 'Build strategic funnels that will convert', href: '#', icon: ArrowPathIcon },
  ]
 

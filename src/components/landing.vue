@@ -3,12 +3,19 @@
       <div class="flex flex-col justify-center items-center">
         <div class="absolute flex flex-col justify-between items-center h-52 mt-20">
           <h1 class="font-kyiv text-4xl xs:text-7xl mix-blend-overlay font-medium text-white text-center">ЭКО КЛИНИНГ</h1>
-          <router-link to="/calculator">
-          <defButton class="mix-blend-hard-light px-5 py-3 text-lg text-[#555555] bg-[#D9D9D9]">Расчитать стоимость</defButton>
-          </router-link>
+          <defButton @click="isCalculatorModalOpen = true" class="mix-blend-hard-light px-5 py-3 text-lg text-[#555555] bg-[#D9D9D9]">Расчитать стоимость</defButton>
         </div>
         <img src="/img/clean-house-blacked.jpg" class="w-full min-h-screen object-cover" alt="">
       </div>
+
+      <defModal :isOpen="isCalculatorModalOpen" @close-modal="isCalculatorModalOpen = false">
+        <div class="w-full h-96">
+          <h3 class="text-center text-dev-500 text-2xl sm:text-3xl">Расчет стоимости</h3>
+          <div>
+            
+          </div>
+        </div>
+      </defModal>
 
       <!-- 5 REASONS -->
       <div class="bg-[#FEFDF5] w-full">
@@ -147,9 +154,9 @@
 </template>
 
 <script setup>
-import defButton from './UI/defButton.vue';
-import defaultLayout from './UI/defaultLayout.vue';
-import sliderComponent from './sliderComponent.vue';
+import defButton from './UI/defButton.vue'
+import defaultLayout from './UI/defaultLayout.vue'
+import sliderComponent from './sliderComponent.vue'
 import defModal from './UI/defModal.vue'
 import {ref} from 'vue'
 
@@ -225,6 +232,8 @@ const sertificates = [
     img: '/img/sert3.jpg'
   },
 ]
+
+const isCalculatorModalOpen = ref(false)
 
 const opened = ref(false)
 const img = ref(null)
