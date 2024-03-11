@@ -8,14 +8,7 @@
         <img src="/img/clean-house-blacked.jpg" class="w-full min-h-screen object-cover" alt="">
       </div>
 
-      <defModal :isOpen="isCalculatorModalOpen" @close-modal="isCalculatorModalOpen = false">
-        <div class="w-full h-96">
-          <h3 class="text-center text-dev-500 text-2xl sm:text-3xl">Расчет стоимости</h3>
-          <div>
-            
-          </div>
-        </div>
-      </defModal>
+      <calculator :isOpen="isCalculatorModalOpen" @close-modal="isCalculatorModalOpen = false" />
 
       <!-- 5 REASONS -->
       <div class="bg-[#FEFDF5] w-full">
@@ -157,6 +150,7 @@
 import defButton from './UI/defButton.vue'
 import defaultLayout from './UI/defaultLayout.vue'
 import sliderComponent from './sliderComponent.vue'
+import calculator from './calculator.vue'
 import defModal from './UI/defModal.vue'
 import {ref} from 'vue'
 

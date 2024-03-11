@@ -50,13 +50,13 @@ const headers = [
     name: 'Цены',
     href: '/prices'
   },
-  {
-    name: 'Типы уборок',
-    href: '#'
-  },
+  // {
+  //   name: 'Типы уборок',
+  //   href: '#'
+  // },
   {
     name: 'Контакты',
-    href: '#'
+    href: '/contacts'
   },
 ]
 </script>
