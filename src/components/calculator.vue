@@ -89,19 +89,19 @@
                   <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label for="input-label" class="block text-sm font-medium mb-2 dark:text-white">Укажите дату</label>
-                      <input id="input-label" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-500 dark:focus:border-orange-500" placeholder="29.02.2024">
+                      <input v-model="form.necessarily.date" required id="input-label" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-500 dark:focus:border-orange-500" placeholder="29.02.2024">
                     </div>
                     <div>
                       <label for="input-label" class="block text-sm font-medium mb-2 dark:text-white">Укажите время</label>
-                      <input id="input-label" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-500 dark:focus:border-orange-500" placeholder="16:00">
+                      <input v-model="form.necessarily.time" required id="input-label" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-500 dark:focus:border-orange-500" placeholder="16:00">
                     </div>
                     <div>
                       <label for="name" id="name" class="block text-sm font-medium mb-2 dark:text-white">Ваше имя</label>
-                      <input id="input-label" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-500 dark:focus:border-orange-500" placeholder="Иван">
+                      <input v-model="form.necessarily.name" required id="input-label" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-500 dark:focus:border-orange-500" placeholder="Иван">
                     </div>
                     <div>
                       <label for="phone" class="block text-sm font-medium mb-2 dark:text-white">Номер телефона</label>
-                      <input id="input-label" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-500 dark:focus:border-orange-500" placeholder="+7">
+                      <input v-model="form.necessarily.phone" required id="input-label" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-500 dark:focus:border-orange-500" placeholder="+7">
                     </div>
                   </div>
                  </div>
@@ -128,43 +128,43 @@
                   <label class="block mb-4 text-sm sm:text-lg font-medium text-gray-900 dark:text-white">Ваш адрес</label>
                   <div class="mb-4">
                     <label for="phone" class="block text-sm font-medium mb-2 dark:text-white">Город</label>
-                    <input id="input-label" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-500 dark:focus:border-orange-500" placeholder="Москва">
+                    <input v-model="form.necessarily.city" required id="input-label" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-500 dark:focus:border-orange-500" placeholder="Москва">
                   </div>
                   <div class="grid grid-cols-3 gap-2 mb-6">
                     <div>
-                      <label for="phone" class="block text-sm font-medium mb-2 dark:text-white">Дом</label>
-                      <input id="input-label" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-500 dark:focus:border-orange-500">
+                      <label class="block text-sm font-medium mb-2 dark:text-white">Дом</label>
+                      <input v-model="form.necessarily.house" required id="input-label" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-500 dark:focus:border-orange-500">
                     </div><div>
-                      <label for="phone" class="block text-sm font-medium mb-2 dark:text-white">Корпус</label>
-                      <input id="input-label" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-500 dark:focus:border-orange-500">
+                      <label class="block text-sm font-medium mb-2 dark:text-white">Корпус</label>
+                      <input v-model="form.necessarily.corpus" id="input-label" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-500 dark:focus:border-orange-500">
                     </div><div>
-                      <label for="phone" class="block text-sm font-medium mb-2 dark:text-white">Строение</label>
-                      <input id="input-label" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-500 dark:focus:border-orange-500">
+                      <label class="block text-sm font-medium mb-2 dark:text-white">Строение</label>
+                      <input v-model="form.necessarily.stroenie" id="input-label" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-500 dark:focus:border-orange-500">
                     </div>
                   </div>
                   <div class="mb-4">
-                    <label for="phone" class="block text-sm font-medium mb-2 dark:text-white">Улица</label>
-                    <input id="input-label" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-500 dark:focus:border-orange-500" placeholder="Москва">
+                    <label class="block text-sm font-medium mb-2 dark:text-white">Улица</label>
+                    <input v-model="form.necessarily.street" required id="input-label" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-500 dark:focus:border-orange-500" placeholder="Москва">
                   </div>
                   <div class="grid grid-cols-3 gap-2">
                     <div>
-                      <label for="phone" class="block text-sm font-medium mb-2 dark:text-white">Квартира</label>
-                      <input id="input-label" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-500 dark:focus:border-orange-500">
+                      <label class="block text-sm font-medium mb-2 dark:text-white">Квартира</label>
+                      <input v-model="form.necessarily.apartment" id="input-label" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-500 dark:focus:border-orange-500">
                     </div><div>
-                      <label for="phone" class="block text-sm font-medium mb-2 dark:text-white">Подъезд</label>
-                      <input id="input-label" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-500 dark:focus:border-orange-500">
+                      <label class="block text-sm font-medium mb-2 dark:text-white">Подъезд</label>
+                      <input v-model="form.necessarily.podezd" id="input-label" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-500 dark:focus:border-orange-500">
                     </div><div>
-                      <label for="phone" class="block text-sm font-medium mb-2 dark:text-white">Домофон</label>
-                      <input id="input-label" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-500 dark:focus:border-orange-500">
+                      <label class="block text-sm font-medium mb-2 dark:text-white">Домофон</label>
+                      <input v-model="form.necessarily.domofon" id="input-label" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-500 dark:focus:border-orange-500">
                     </div>
                   </div>
                   <div class="flex flex-col mt-4 px-px">
-                    <label for="phone" class=" text-sm font-medium mb-2 dark:text-white">Комментарий</label>
-                  <textarea name="commentary" id="" cols="30" rows="5" class="border border-black"></textarea>
+                    <label class=" text-sm font-medium mb-2 dark:text-white">Комментарий</label>
+                  <textarea v-model="form.necessarily.commentary" name="commentary" id="" cols="30" rows="5" class="border border-black"></textarea>
                   </div>
                  </div>
                  <div class="flex flex-col w-full min-h-64 justify-around items-center border-2 bg-dev-50 border-dev-500 text-black p-2 rounded-xl mt-8">
-                  <p class="text-center text-2xl sm:text-3xl mb-4 font-bold">Уборка {{form.typesCleaning.selected}}</p>
+                  <p class="text-center text-2xl sm:text-3xl mb-4 font-semibold">Уборка {{form.typesCleaning.selected}}</p>
                   <div class="flex flex-row justify-around w-full">
                     <div class="self-center flex flex-col w-auto items-start gap-2">
                       <p v-if="form.cleaningInfo.selected == 'Квартира'" class="text-lg sm:text-xl font-medium">Комнат: {{form.cleaningInfo.areaCount}}</p>
@@ -173,10 +173,10 @@
                       <span class="text-lg sm:text-xl font-medium">Дополнительно: <p class="text-gray-800 text-base sm:text-lg underline" v-for="(item, index) in form.additional.selected" :key="index">{{item.name}}</p></span>
                       <p class="text-lg sm:text-xl font-medium">Дата: {{form.cleaningInfo.areaCount}}</p>
                     </div>
-                    <div class="bg-dev-500 text-white flex flex-col p-2 items-center w-1/4 rounded-xl">
+                    <div class="bg-dev-500 text-white flex flex-col justify-between p-2 items-center w-1/3 sm:w-1/4 rounded-xl">
                       <p class="text-xl sm:text-2xl font-medium mb-4">Итого</p>
-                      <p class="text-lg sm:text-xl mb-2">{{totalPrice}}₽</p>
-                      <defButton class="bg-dev-300">Заказать</defButton>
+                      <p class="text-lg sm:text-xl mb-2 font-semibold">{{totalPrice}}₽</p>
+                      <defButton type="submit" class="border-2 px-5 border-white">Заказать</defButton>
                     </div>
                   </div>
                  </div>
@@ -313,6 +313,9 @@ const form = reactive({
       name: 'Один раз',
       discount: 0
     },]
+  },
+  necessarily: {
+   date: null, time: null, name: null, phone: null, city: null, house: null, corpus: null, stroenie: null, street: null, apartment: null, podezd: null, domofon: null, commentary: null
   }
 })
 </script>

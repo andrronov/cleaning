@@ -93,24 +93,29 @@
             </div>
          </div>
 
-         <div class="flex flex-row items-center w-full mt-12 bg-dev-100 py-8 justify-around">
-            <div class="flex flex-col items-center gap-4">
+         <div class="flex flex-row text-center items-end w-full mt-12 bg-dev-100 py-10 justify-around">
+            <div class="flex w-1/2 flex-col items-center gap-4">
                <p class="font-semibold text-xl sm:text-2xl">Расчитать стоимость самостоятельно</p>
-               <defButton class="bg-dev-500 text-white">Расчитать стоимость</defButton>
+               <defButton @click="isCalculatorModalOpen = true" class="bg-dev-500 text-white">Расчитать стоимость</defButton>
             </div>
-            <div class="flex flex-col items-center gap-4">
+            <div class="flex w-1/2 flex-col items-center gap-4">
                <p class="font-semibold text-xl sm:text-2xl">Быстро оформить</p>
                <defButton @click="toSection('form')" class="bg-dev-500 text-white">Оставить заявку</defButton>
             </div>
          </div>
       </div>
    </div>
+
+   <calculator :isOpen="isCalculatorModalOpen" @close-modal="isCalculatorModalOpen = false" />
+
   </defaultLayout>
 </template>
 
 <script setup>
+import calculator from './calculator.vue';
 import defaultLayout from './UI/defaultLayout.vue'
 import defButton from './UI/defButton.vue'
+import {ref} from 'vue'
 
 const prices = {
    firstColumn: [
@@ -126,6 +131,8 @@ const prices = {
       }, {name:'Здоровый питомец', price:'+40% к стоимости'}, {name:'Генеральная уборка Санузла', price:'6500р'}, {name:'Генеральная уборка Кухни (all inclusive)', price:'7500р'}, {name:'Генеральная уборка Кухни (без техники)', price:'6500р'}, {name:'Диван 2-х местный (химч)', price:'2500р'}, {name:'Диван 3-х местный (химч)', price:'3500р'}, {name:'Диван 4-х местный (химч)', price:'4500р'}, {name:'Диван 5-ти местный (химч)', price:'5000p'}, {name:'Матрас односпальный (химч)', price:'1500р.'}, {name:'Матрас двухспальный (химч)', price:'2500р.'}, {name:'Матрас полуторный (химч)', price:'2000р'}, {name:'Москитная сетка 1шт', price:'200р'}, {name:'Балконный блок (дверь с окном)', price:'1500р'}, {name:'Ковер, ковр. покрытие (химч)', price:'300р/кв.м'}, {name:'Стула без тканевой спинки (химч)', price:'от 300р'}, {name:'Стул с тканевой спинкой (химч)', price:'от 400 р'}, {name:'Подушка (химч)', price:'200р'}, {name:'Пуфик (химч)', price:'500р'}, {name:'Мойка стиральной машинки', price:'650р'}, {name:'Мойка посудомойки', price:'600р'}, {name:'*Доставка оборудования по Москве(в область)', price:'от 2500р (от 3500р)'}, {name:'*Подтверждение заказа принимается', price:'до 18.00'}, {name: '*Если клинеры заканчивают уборку после 12 часов ночи дорогу оплачивает клиент(такси).', price: ''}
    ]
 }
+
+const isCalculatorModalOpen = ref(false)
 
 function toSection(el){
   const section = document.getElementById(el)
