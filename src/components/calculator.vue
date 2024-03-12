@@ -15,6 +15,8 @@
                </div>
 
                <div class="max-w-7xl mx-auto flex flex-col">
+                 <p v-if="form.typesCleaning.selected === 'После строительства'" class="text-red-800">Доставка оборудования в пределах МКАД - 2000 руб.
+                   За пределы МКАД - от 2500 руб.</p>
                   <div class="flex flex-row items-center gap-10 sm:gap-20 mb-8">
                      <div class="flex flex-col items-start gap-4">
                         <div>
@@ -24,7 +26,7 @@
                              </select>
                         </div>
                         <div>
-                          <label class="block mb-2 text-sm sm:text-lg font-medium text-gray-900 dark:text-white" v-if="form.cleaningInfo.selected == 'Квартира'">Кол-во комнат</label>
+                          <label class="block mb-2 text-sm sm:text-lg font-medium text-gray-900 dark:text-white" v-if="form.cleaningInfo.selected == 'Квартира' && form.typesCleaning.selected == 'Поддерживающая'">Кол-во комнат</label>
                           <label class="block mb-2 text-sm sm:text-lg font-medium text-gray-900 dark:text-white" v-else>Площадь</label>
                           <div class="relative flex items-center">
                               <button type="button" @click="form.cleaningInfo.areaCount --" :disabled="form.cleaningInfo.areaCount < 2" id="decrement-button" data-input-counter-decrement="bedrooms-input" class="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-s-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
@@ -37,9 +39,14 @@
                                   <svg class="w-2.5 h-2.5 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                                       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8v10a1 1 0 0 0 1 1h4v-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5h4a1 1 0 0 0 1-1V8M1 10l9-9 9 9"/>
                                   </svg>
-                                  <span v-if="form.cleaningInfo.selected == 'Квартира'">Комнат</span>
+                                  <span v-if="form.cleaningInfo.selected == 'Квартира' && form.typesCleaning.selected == 'Поддерживающая'">Комнат</span>
                               </div>
-                              <button type="button" @click="form.cleaningInfo.areaCount ++" id="increment-button" data-input-counter-increment="bedrooms-input" class="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-e-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
+                              <button type="button" v-if="form.cleaningInfo.selected == 'Квартира' && form.typesCleaning.selected == 'Поддерживающая'" @click="form.cleaningInfo.areaCount ++" :disabled="form.cleaningInfo.areaCount > 4" id="increment-button" data-input-counter-increment="bedrooms-input" class="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-e-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
+                                  <svg class="w-3 h-3 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
+                                  </svg>
+                              </button>
+                              <button type="button" v-else @click="form.cleaningInfo.areaCount ++" id="increment-button" data-input-counter-increment="bedrooms-input" class="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-e-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
                                   <svg class="w-3 h-3 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
                                       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
                                   </svg>
@@ -48,7 +55,7 @@
                         </div>
                      </div>
                      <div class="flex flex-col items-start gap-4">
-                        <div>
+                        <div v-if="form.typesCleaning.selected !== 'После строительства'">
                            <label class="block mb-2 text-sm sm:text-lg font-medium text-gray-900 dark:text-white">Вариант уборки</label>
                            <select v-model="form.variantsCleaning.selected" id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-500 dark:focus:border-orange-500">
                              <option v-for="(type, index) in form.variantsCleaning.array" :key="index" :value="type">{{type}}</option>
@@ -62,7 +69,7 @@
                                   </svg>
                               </button>
                               <input type="text" id="bedrooms-input" data-input-counter data-input-counter-min="1" aria-describedby="helper-text-explanation" class="bg-gray-50 border-x-0 border-gray-300 h-full font-medium text-center text-gray-900 text-sm focus:ring-orange-500 focus:border-orange-500 block w-full pb-6 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-500 dark:focus:border-orange-500" placeholder="" :value="form.cleaningInfo.washRooms" required />
-                              <button type="button" @click="form.cleaningInfo.washRooms ++" id="increment-button" data-input-counter-increment="bedrooms-input" class="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-e-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
+                              <button type="button" @click="form.cleaningInfo.washRooms ++" :disabled="form.cleaningInfo.washRooms > 4" id="increment-button" data-input-counter-increment="bedrooms-input" class="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-e-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
                                   <svg class="w-3 h-3 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
                                       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
                                   </svg>
@@ -156,14 +163,21 @@
                   <textarea name="commentary" id="" cols="30" rows="5" class="border border-black"></textarea>
                   </div>
                  </div>
-                 <div class="flex flex-col w-full bg-dev-500 items-center text-white p-2 rounded-xl mt-8">
+                 <div class="flex flex-col w-full min-h-64 justify-around items-center border-2 bg-dev-50 border-dev-500 text-black p-2 rounded-xl mt-8">
                   <p class="text-center text-2xl sm:text-3xl mb-4 font-bold">Уборка {{form.typesCleaning.selected}}</p>
-                  <div class="self-center flex flex-col w-full items-start gap-2">
-                    <p v-if="form.cleaningInfo.selected == 'Квартира'" class="text-lg sm:text-xl font-medium">Комнат: {{form.cleaningInfo.areaCount}}</p>
-                    <p v-else class="text-lg sm:text-xl font-medium">Площадь: {{form.cleaningInfo.areaCount}} кв/м</p>
-                    <p class="text-lg sm:text-xl font-medium">Санузлов: {{form.cleaningInfo.washRooms}}</p>
-                    <span class="text-lg sm:text-xl font-medium">Дополнительно: <p class="text-gray-200 text-base sm:text-lg underline" v-for="(item, index) in form.additional.selected" :key="index">{{item.name}}</p></span>
-                    <p class="text-lg sm:text-xl font-medium">Дата: {{form.cleaningInfo.areaCount}}</p>
+                  <div class="flex flex-row justify-around w-full">
+                    <div class="self-center flex flex-col w-auto items-start gap-2">
+                      <p v-if="form.cleaningInfo.selected == 'Квартира'" class="text-lg sm:text-xl font-medium">Комнат: {{form.cleaningInfo.areaCount}}</p>
+                      <p v-else class="text-lg sm:text-xl font-medium">Площадь: {{form.cleaningInfo.areaCount}} кв/м</p>
+                      <p class="text-lg sm:text-xl font-medium">Санузлов: {{form.cleaningInfo.washRooms}}</p>
+                      <span class="text-lg sm:text-xl font-medium">Дополнительно: <p class="text-gray-800 text-base sm:text-lg underline" v-for="(item, index) in form.additional.selected" :key="index">{{item.name}}</p></span>
+                      <p class="text-lg sm:text-xl font-medium">Дата: {{form.cleaningInfo.areaCount}}</p>
+                    </div>
+                    <div class="bg-dev-500 text-white flex flex-col p-2 items-center w-1/4 rounded-xl">
+                      <p class="text-xl sm:text-2xl font-medium mb-4">Итого</p>
+                      <p class="text-lg sm:text-xl mb-2">{{totalPrice}}₽</p>
+                      <defButton class="bg-dev-300">Заказать</defButton>
+                    </div>
                   </div>
                  </div>
                </div>
@@ -176,20 +190,57 @@
 </template>
 
 <script setup>
-import { reactive } from 'vue'
+import { computed, reactive } from 'vue'
 import defModal from './UI/defModal.vue'
+import defButton from './UI/defButton.vue'
 
 const emits = defineEmits({
    closeModal(){return false}
 })
-
-function findIsAdded(item){
-  return item.name == form.additional.selected.name
-}
-
 function closeModal(){
   emits('closeModal')
 }
+
+const totalPrice = computed(() => {
+  let price = 0
+  if(form.cleaningInfo.selected === 'Квартира'){
+    if(form.cleaningInfo.areaCount < 2) {price = 3900}
+    price = 3990 + ((form.cleaningInfo.areaCount-1) * 500)
+    if(form.cleaningInfo.areaCount > 4){price = 5590}
+    if(form.typesCleaning.selected === 'Генеральная'){
+      form.cleaningInfo.areaCount < 65 ? price = 13500 : price = 13500 + ((form.cleaningInfo.areaCount-65) * 210)
+    } else if(form.typesCleaning.selected === 'После строительства') {
+      form.cleaningInfo.areaCount < 65 ? price = 15600 : price = 15600 + ((form.cleaningInfo.areaCount-65) * 240)
+    }
+  } 
+  else{
+    if(form.typesCleaning.selected === 'Поддерживающая'){
+      price = form.cleaningInfo.areaCount * 50
+    }
+    else if(form.typesCleaning.selected === 'Генеральная'){
+      form.cleaningInfo.areaCount < 65 ? price = 13500 : price = 13500 + ((form.cleaningInfo.areaCount-65) * 210)
+    } else if(form.typesCleaning.selected === 'После строительства') {
+      form.cleaningInfo.areaCount < 65 ? price = 15600 : price = 15600 + ((form.cleaningInfo.areaCount-65) * 240)
+    }
+  }
+  if(form.cleaningInfo.washRooms > 1){
+      if(form.typesCleaning.selected === 'Поддерживающая'){
+        price += (form.cleaningInfo.washRooms-1) * 500
+    } else {
+      price += (form.cleaningInfo.washRooms-1) * 1500
+    }
+  }
+  if(form.variantsCleaning.selected !== 'Обычная'){
+    price = price + (price / 100 * 40)
+  }
+
+  const addings = [0]
+  form.additional.selected.forEach(item => addings.push(item.price))
+  price += addings.reduce((acc, number) => acc + number)
+
+  price = price - (price / 100 * form.howOften.selected).toFixed(0)
+  return price
+})
 
 const form = reactive({
   cleaningInfo: {
