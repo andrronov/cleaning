@@ -9,11 +9,11 @@
       <form class="w-80 mb-32">
         <div class="mb-5 mx-2">
           <label for="name" class="block mb-2 text-sm font-medium text-gray-900">Имя</label>
-          <input type="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" placeholder="Иван" required />
+          <input v-model="form.name" type="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" placeholder="Иван" required />
         </div>
         <div class="mb-5 mx-2">
           <label for="phone" class="block mb-2 text-sm font-medium text-gray-900">Номер телефона</label>
-          <input type="phone" id="phone" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" placeholder="+7" required />
+          <input v-model="form.phone" type="phone" id="phone" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" placeholder="+7" required />
         </div>
         <div class="flex items-start mb-5 mx-2">
           <div class="flex items-center h-5">
@@ -21,7 +21,7 @@
           </div>
           <label for="remember" class="ms-2 text-sm font-medium text-gray-900">Remember me</label>
         </div>
-        <defButton type="submit" class="text-white bg-dev-500 focus:outline-none font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center">Подтвердить</defButton>
+        <defButton @click.prevent="sendForm" class="text-white bg-dev-500 focus:outline-none font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center">Подтвердить</defButton>
       </form>
     </div>
   </div>
@@ -30,8 +30,10 @@
 </template>
 
 <script setup>
+import { reactive } from 'vue';
 import footerNav from '../navigation/footerNav.vue';
 import headerNav from '../navigation/headerNav.vue';
+import defButton from './defButton.vue';
 
 const headers = [
   // {
@@ -59,8 +61,21 @@ const headers = [
     href: '/contacts'
   },
 ]
+
+const form = reactive({
+  name: null,
+  phone: null
+})
+
+async function sendForm(){
+  const res = await fetch(import.meta.env.VITE_SITE_URL + 'api/application', {
+    method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8'
+      },
+      body: JSON.stringify(form)
+  })
+  console.log(res);
+  console.log(form);
+}
 </script>
-
-<style>
-
-</style>

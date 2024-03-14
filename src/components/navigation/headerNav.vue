@@ -121,7 +121,9 @@
    { name: 'Уборка в коттедже', description: 'Чистым будет каждый уголок', href: '/cottage', icon: CursorArrowRaysIcon },
    { name: 'Уборка в офисе', description: 'Для комфорта ваших сотрудников', href: '/office', icon: FingerPrintIcon },
    { name: 'Мойка окон', description: 'Стекло будет блестеть!', href: '/windows', icon: SquaresPlusIcon },
-   { name: 'Automations', description: 'Build strategic funnels that will convert', href: '#', icon: ArrowPathIcon },
+   { name: 'Здоровый малыш', description: 'С заботой о самых любимых', href: '/kids', icon: ArrowPathIcon },
+   { name: 'Здоровый питомец', description: '', href: '/pet', icon: ArrowPathIcon },
+   { name: 'Все услуги', description: '', href: '/services', icon: ArrowPathIcon },
  ]
 
 import defButton from '../UI/defButton.vue'
