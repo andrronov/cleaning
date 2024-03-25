@@ -8,7 +8,7 @@
         <h6 class="text-dev-300 text-4xl text-center mt-44 mb-24 mx-2">
           Оставьте заявку прямо сейчас!
         </h6>
-        <form class="w-80 mb-32">
+        <form class="w-full max-w-96 mb-32">
           <div class="mb-5 mx-2">
             <label
               for="name"
@@ -39,9 +39,10 @@
               required
             />
           </div>
-          <div class="flex items-start mb-5 mx-2">
+          <div class="flex items-center mb-5 mx-2">
             <div class="flex items-center h-5">
               <input
+              v-model="form.isAgreed"
                 id="remember"
                 type="checkbox"
                 value=""
@@ -49,15 +50,22 @@
                 required
               />
             </div>
-            <label for="remember" class="ms-2 text-sm font-medium text-gray-900"
-              >Remember me</label
+            <label for="remember" class="ms-2 text-xs font-medium text-gray-900"
+              >Я согласен с условиями <span @click="openModal" class="font-semibold hover:font-bold cursor-pointer text-dev-500 underline">договора</span> об оказании услуг</label
             >
           </div>
+
+          <defModal :isOpen="opened" @close-modal="opened = false">
+            <img v-for="(doc, index) in documents" :key="index" :src="doc" class="my-12" alt="">
+          </defModal>
+
           <defButton
             @click.prevent="sendForm"
             class="text-white bg-dev-500 focus:outline-none font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center"
-            >Подтвердить</defButton
-          >
+            >Подтвердить</defButton>
+
+          <p v-if="form.text" class="text-center text-lg sm:text-xl mt-2 text-dev-500">{{ form.text }}</p>
+          <img v-if="form.isLoading" class="mx-auto w-24 h-24" src="/img/Infinity-1s-200px.svg" alt="">
         </form>
       </div>
     </div>
@@ -66,10 +74,11 @@
 </template>
 
 <script setup>
-import { reactive } from 'vue';
+import { reactive, ref } from 'vue';
 import footerNav from '../navigation/footerNav.vue';
 import headerNav from '../navigation/headerNav.vue';
 import defButton from './defButton.vue';
+import defModal from './defModal.vue'
 
 const headers = [
   // {
@@ -100,18 +109,41 @@ const headers = [
 
 const form = reactive({
   name: null,
-  phone: null
+  phone: null,
+  isAgreed: false,
+  isLoading: false
 })
 
+
 async function sendForm(){
-  const res = await fetch(import.meta.env.VITE_SITE_URL + 'api/application', {
+  if(form.isAgreed && form.name && form.phone){
+    form.isLoading = true
+    const res = await fetch(import.meta.env.VITE_SITE_PORT + 'api/application', {
     method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8'
       },
       body: JSON.stringify(form)
   })
-  console.log(res);
-  console.log(form);
+    if(res.ok){
+      form.text = 'Заявка успешно отправлена!'
+      form.isLoading = false
+    } else {
+      form.text = 'Произошла ошибка'
+      form.isLoading = false
+    }
+  } else {
+    form.text = "Все поля должны быть заполнены"
+    setTimeout(() => {
+      form.text = null
+    }, 3000);
+  }
+}
+
+
+const documents = ['/img/договор НаВи.jpg', '/img/договор НаВи1.jpg', '/img/договор НаВи2.jpg', '/img/договор НаВи3.jpg', '/img/договор НаВи4.jpg', '/img/договор НаВи5.jpg', '/img/договор НаВи6.jpg', '/img/договор НаВи7.jpg', '/img/договор НаВи8.jpg']
+const opened = ref(false)
+function openModal(){
+  opened.value = true
 }
 </script>

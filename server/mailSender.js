@@ -1,6 +1,6 @@
 import nodemailer from "nodemailer"
 import 'dotenv/config'
-
+console.log(process.env.VITE_MAIL_USER ,'aaa');
 class MailSender{
    constructor(){
       this.transporter = nodemailer.createTransport({
@@ -18,12 +18,12 @@ class MailSender{
       const info = await this.transporter.sendMail({
          from: process.env.VITE_MAIL_USER,
          to: process.env.VITE_MAIL_USER,
-         subject: `Новая заявка от ${letter?.userName}, ${letter?.userPhone}`,
+         subject: `Новая заявка от ${letter?.name}, ${letter?.phone}`,
          html: `
-               <div style="display: flex; flex-direction:column; background-color: #2453E0; padding: 10px; color: white">
+               <div style="display: flex; flex-direction:column; background-color: #FFA800; padding: 10px; color: white">
                   <h1 style="font-style: italic; font-size: 1.5rem; justify-self: center;">NaVi Cleaning</h1>
-                  <p style="font-size:1.15rem">Имя: ${letter?.userName}</p>
-                  <p style="font-size:1.15rem">Телефон: ${letter?.userPhone}</p>
+                  <p style="font-size:1.15rem">Имя: ${letter?.name}</p>
+                  <p style="font-size:1.15rem">Телефон: ${letter?.phone}</p>
                </div>
             `,
       });
