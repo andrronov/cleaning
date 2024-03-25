@@ -3,7 +3,7 @@
     <div class="w-full">
       <div class="max-w-7xl mx-auto px-2">
         <h3
-          class="text-2xl text-center mb-12 font-semibold leading-7 text-dev-500 sm:truncate sm:text-3xl sm:tracking-tight mt-20"
+          class="text-2xl text-center mb-12 font-semibold leading-7 text-dev-500 sm:truncate sm:text-3xl sm:tracking-tight mt-28"
         >
           Все услуги
         </h3>

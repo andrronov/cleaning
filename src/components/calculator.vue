@@ -176,7 +176,7 @@
                     <div class="bg-dev-500 text-white flex flex-col justify-between p-2 items-center w-1/3 sm:w-1/4 rounded-xl">
                       <p class="text-xl sm:text-2xl font-medium mb-4">Итого</p>
                       <p class="text-lg sm:text-xl mb-2 font-semibold">{{totalPrice}}₽</p>
-                      <defButton type="submit" class="border-2 px-5 border-white">Заказать</defButton>
+                      <defButton @click="sendForm" type="submit" class="border-2 px-5 border-white">Заказать</defButton>
                     </div>
                   </div>
                  </div>
@@ -243,6 +243,7 @@ const totalPrice = computed(() => {
 })
 
 const form = reactive({
+  isCalculator: true,
   cleaningInfo: {
     selected: 'Квартира',
     areaCount: 1,
@@ -318,6 +319,23 @@ const form = reactive({
    date: null, time: null, name: null, phone: null, city: null, house: null, corpus: null, stroenie: null, street: null, apartment: null, podezd: null, domofon: null, commentary: null
   }
 })
+
+async function sendForm(){
+  const res = await fetch(import.meta.env.VITE_SITE_PORT + 'api/application', {
+    method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8'
+      },
+      body: JSON.stringify(form)
+  })
+    if(res.ok){
+      form.text = 'Заявка успешно отправлена!'
+      form.isLoading = false
+    } else {
+      form.text = 'Произошла ошибка'
+      form.isLoading = false
+    }
+}
 </script>
 
 <style scoped>
