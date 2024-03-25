@@ -66,10 +66,11 @@
 </template>
 
 <script setup>
-import { reactive } from "vue";
-import footerNav from "../navigation/footerNav.vue";
-import headerNav from "../navigation/headerNav.vue";
-import defButton from "./defButton.vue";
+import { reactive } from 'vue';
+import footerNav from '../navigation/footerNav.vue';
+import headerNav from '../navigation/headerNav.vue';
+import defButton from './defButton.vue';
+
 const headers = [
   // {
   //   name: 'Главная',
@@ -95,19 +96,21 @@ const headers = [
     name: "Контакты",
     href: "/contacts",
   },
-];
+]
+
 const form = reactive({
   name: null,
-  phone: null,
-});
-async function sendForm() {
-  const res = await fetch(import.meta.env.VITE_SITE_PORT + "api/application", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json;charset=utf-8",
-    },
-    body: JSON.stringify(form),
-  });
+  phone: null
+})
+
+async function sendForm(){
+  const res = await fetch(import.meta.env.VITE_SITE_URL + 'api/application', {
+    method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8'
+      },
+      body: JSON.stringify(form)
+  })
   console.log(res);
   console.log(form);
 }
