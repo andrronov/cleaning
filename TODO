@@ -1,9 +1,10 @@
 # <!-- 1. header text color change depending on background (try attr ref) -->
-<!-- 2. z index for mobile header -->
+# <!-- 2. z index for mobile header -->
 # <!-- 4. at main page add photos to rates -->
 5. do pics for slider
-6. change header links to normal
-7. fix router-link
+# 6. change header links to normal
+# 7. fix router-link
 ; 8. вынести калькулятор в отдельный компонент
 # 9. поменять все нужные данные в mailSender и добавить переменные окружения
 10. доделать все второстепенные страницы + сделать страницу со всеми услугами
+11. focus trap

@@ -163,8 +163,8 @@ import defButton from './UI/defButton.vue'
 import defModal from './UI/defModal.vue'
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue'
 import { ChevronUpIcon } from '@heroicons/vue/20/solid'
-import { useRoute } from 'vue-router'
-import { ref } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+import { ref, watch } from 'vue'
 const props = defineProps({
    types: {
       type: Array
@@ -531,6 +531,11 @@ function openImg(sert){
   opened.value = true
   img.value = sert
 }
+
+const router = useRouter()
+watch(route, (oldRoute, newRoute) => {
+   router.go(newRoute)
+})
 
 const serv = services.find(ser => ser.path === route.params.id)
 

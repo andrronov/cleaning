@@ -40,7 +40,7 @@
            </transition>
          </Popover>
          
-         <button v-for="(link, index) in props.headers" :key="index" :href="link.href" @click="link.href ? this.$router.push(link.href) : toSection(link.section)" class="text-sm font-semibold leading-6 text-gray-100">{{ link.name }}</button>
+         <button v-for="(link, index) in props.headers" :key="index" :href="link.href" @click="link.href ? $router.push(link.href) : toSection(link.section)" class="text-sm font-semibold leading-6 text-gray-100">{{ link.name }}</button>
          
          <!-- <a href="#" class="text-sm font-semibold leading-6 text-gray-100">Marketplace</a>
          <a href="#" class="text-sm font-semibold leading-6 text-gray-100">Company</a> -->
@@ -72,14 +72,14 @@
                    <ChevronDownIcon :class="[open ? 'rotate-180' : '', 'h-5 w-5 flex-none']" aria-hidden="true" />
                  </DisclosureButton>
                  <DisclosurePanel class="mt-2 space-y-2">
-                   <DisclosureButton v-for="item in products" :key="item.name" as="button" @click.prevent="item.href ? this.$router.push(item.href) : toSection(item.section)" class="block rounded-sm py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+                   <DisclosureButton v-for="item in products" :key="item.name" as="button" @click.prevent="item.href ? $router.push(item.href) : toSection(item.section)" class="block rounded-sm py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">
                     {{ item.name }}
                   </DisclosureButton>
                  </DisclosurePanel>
                </Disclosure>
                <!-- <a href="#" class="-mx-3 block rounded-sm px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Company</a> -->
                
-               <button v-for="(link, index) in props.headers" @click.prevent="link.href ? this.$router.push(link.href) : toSection(link.section)" :key="index" class="-mx-3 block rounded-sm px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">{{ link.name }}</button>
+               <button v-for="(link, index) in props.headers" @click.prevent="link.href ? $router.push(link.href) : toSection(link.section)" :key="index" class="-mx-3 block rounded-sm px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">{{ link.name }}</button>
              </div>
              <div class="py-6">
                <!-- <a href="#" class="-mx-3 block rounded-sm px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Log in</a> -->
@@ -112,6 +112,8 @@
    CursorArrowRaysIcon,
    FingerPrintIcon,
    SquaresPlusIcon,
+   ArrowDownIcon,
+   InformationCircleIcon,
    XMarkIcon,
  } from '@heroicons/vue/24/outline'
  import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/vue/20/solid'
@@ -121,8 +123,8 @@
    { name: 'Уборка в коттедже', description: 'Чистым будет каждый уголок', href: '/cottage', icon: CursorArrowRaysIcon },
    { name: 'Уборка в офисе', description: 'Для комфорта ваших сотрудников', href: '/office', icon: FingerPrintIcon },
    { name: 'Мойка окон', description: 'Стекло будет блестеть!', href: '/windows', icon: SquaresPlusIcon },
-   { name: 'Здоровый малыш', description: 'С заботой о самых любимых', href: '/kids', icon: ArrowPathIcon },
-   { name: 'Здоровый питомец', description: '', href: '/pet', icon: ArrowPathIcon },
+   { name: 'Здоровый малыш', description: 'С заботой о самых любимых', href: '/kids', icon: InformationCircleIcon },
+   { name: 'Здоровый питомец', description: 'Ваши питомцы точно оценят это!', href: '/pet', icon: ArrowDownIcon },
    { name: 'Все услуги', description: '', href: '/services', icon: ArrowPathIcon },
  ]
 
