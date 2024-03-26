@@ -49,7 +49,7 @@
           <img src="/img/kalendar.png" class="w-96 h-96 sm:ml-48 sm:mt-4 mix-blend-difference self-center absolute" alt="">
           <div class="flex flex-col items-center gap-4 mb-14 z-10">
             <p class="text-lg max-w-md text-center bg-dev-100 p">При заказе поддерживающей уборки 1 комнатной квартиры раз в неделю</p>
-            <defButton class="bg-dev-500 w-40 px-5 py-2.5 text-lg">Заказать</defButton>
+            <defButton @click="toSection('form')" class="bg-dev-500 w-40 px-5 py-2.5 text-lg">Заказать</defButton>
           </div>
         </div>
       </div>
@@ -61,7 +61,7 @@
         <div class="w-full h-3/5 bottom-48 absolute border-8 border-dev-100 rounded-2xl"></div>
 
           <sliderComponent class="mb-32 mt-10" />
-          <defButton class="bg-dev-300 text-2xl text-white px-5 py-2.5 mb-[113px]">Оставить заявку</defButton>
+            <defButton @click="toSection('form')" class="bg-dev-300 text-2xl text-white px-5 py-2.5 mb-[113px]">Оставить заявку</defButton>
         </div>
       </div>
 
@@ -79,7 +79,9 @@
               <defButton @click="this.$router.push(service.link)" class="bg-dev-300 text-white w-28 mb-3">Заказать</defButton>
             </div>
           </div>
-          <defButton class="text-white w-44 mt-20 py-3 bg-dev-300 mb-28">Все услуги</defButton>
+          <router-link to="services">
+            <defButton class="text-white w-44 mt-20 py-3 bg-dev-300 mb-28">Все услуги</defButton>
+          </router-link>
         </div>
       </div>
 
@@ -153,6 +155,14 @@ import sliderComponent from './sliderComponent.vue'
 import calculator from './calculator.vue'
 import defModal from './UI/defModal.vue'
 import {ref} from 'vue'
+
+function toSection(el){
+  const section = document.getElementById(el)
+  section.scrollIntoView({
+    behavior: 'smooth',
+        block: 'start',
+  })
+}
 
 const popularServices = [
   {

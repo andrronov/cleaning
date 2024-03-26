@@ -6,8 +6,12 @@
             <button v-for="(link, index) in props.headers" :key="index" :href="link.href" @click="link.href ? this.$router.push(link.href) : toSection(link.section)" class="text-sm font-semibold leading-6 text-gray-100">{{ link.name }}</button>
          </ul>
          <div class="flex flex-row items-center gap-1">
-            <img src="/img/whatsapp.svg" class="text-white w-10 h-10" alt="">
-            <img src="/img/telegram.svg" class="text-white w-10 h-10" alt="">
+            <a href="https://wa.me/79773788955">
+               <img src="/img/whatsapp.svg" class="text-white w-10 h-10" alt="">
+            </a>
+            <a href="https://t.me/NairaV">
+               <img src="/img/telegram.svg" class="text-white w-10 h-10" alt="">
+            </a>
          </div>
       </div>   
    </footer>

@@ -138,9 +138,7 @@ function toSection(el){
         block: 'start',
   })
 }
-function aaa(){
-  console.log('aaa');
-}
+
 const props = defineProps({
   headers: {
     type: Array,
