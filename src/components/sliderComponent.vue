@@ -30,19 +30,19 @@
       return{
          slides: [
             {
-               img: '/img/spalnya-slider.png',
+               img: '/img/room.jpg',
                name: 'Комнаты'
             },
             {
-               img: '/img/spalnya-slider.png',
+               img: '/img/kitchen.jpg',
                name: 'Кухня'
             },
             {
-               img: '/img/spalnya-slider.png',
+               img: '/img/bath.jpg',
                name: 'Ванная'
             },
             {
-               img: '/img/spalnya-slider.png',
+               img: '/img/hall.jpg',
                name: 'Коридор'
             },
          ],
