@@ -23,15 +23,12 @@
             >
               от {{ product.price }}₽
             </p>
-            <defButton
-              @click="
-                product.href
-                  ? this.$router.push(product.href)
-                  : toSection(product.section)
-              "
-              class="bg-dev-300 text-txt-100 rounded-none"
+            <router-link :to="product.href">
+              <defButton
+              class="bg-dev-300 text-txt-100 rounded-none w-full"
               >Перейти</defButton
             >
+            </router-link>
           </div>
         </div>
       </div>

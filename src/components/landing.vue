@@ -76,7 +76,9 @@
               <img :src="service.img" class="w-full" alt="service picture">
               <h3 class="uppercase text-lg font-medium mt-2">{{ service.title }}</h3>
               <p class="text-[15px] font-light mt-1 mb-4">от {{ service.price }}₽</p>
-              <defButton @click="this.$router.push(service.link)" class="bg-dev-300 text-white w-28 mb-3">Заказать</defButton>
+              <router-link :to="service.link">
+                <defButton class="bg-dev-300 text-white w-28 mb-3">Заказать</defButton>
+              </router-link>
             </div>
           </div>
           <router-link to="services">
