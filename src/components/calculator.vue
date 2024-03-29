@@ -27,7 +27,7 @@
                         </div>
                         <div>
                           <label class="block mb-2 text-sm sm:text-lg font-medium text-gray-900 dark:text-white" v-if="form.cleaningInfo.selected == 'Квартира' && form.typesCleaning.selected == 'Поддерживающая'">Кол-во комнат</label>
-                          <label class="block mb-2 text-sm sm:text-lg font-medium text-gray-900 dark:text-white" v-else>Площадь</label>
+                          <label class="block mb-2 text-sm sm:text-lg font-medium text-gray-900 dark:text-white" v-else>Площадь (кв/м)</label>
                           <div class="relative flex items-center">
                               <button type="button" @click="form.cleaningInfo.areaCount --" :disabled="form.cleaningInfo.areaCount < 2" id="decrement-button" data-input-counter-decrement="bedrooms-input" class="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-s-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
                                   <svg class="w-3 h-3 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
@@ -167,7 +167,7 @@
                   <p class="text-center text-2xl sm:text-3xl mb-4 font-semibold">Уборка {{form.typesCleaning.selected}}</p>
                   <div class="flex flex-row justify-around w-full">
                     <div class="self-center flex flex-col w-auto items-start gap-2">
-                      <p v-if="form.cleaningInfo.selected == 'Квартира'" class="text-lg sm:text-xl font-medium">Комнат: {{form.cleaningInfo.areaCount}}</p>
+                      <p v-if="form.cleaningInfo.selected == 'Квартира' && form.typesCleaning.selected == 'Поддерживающая'" class="text-lg sm:text-xl font-medium">Комнат: {{form.cleaningInfo.areaCount}}</p>
                       <p v-else class="text-lg sm:text-xl font-medium">Площадь: {{form.cleaningInfo.areaCount}} кв/м</p>
                       <p class="text-lg sm:text-xl font-medium">Санузлов: {{form.cleaningInfo.washRooms}}</p>
                       <span class="text-lg sm:text-xl font-medium">Дополнительно: <p class="text-gray-800 text-base sm:text-lg underline" v-for="(item, index) in form.additional.selected" :key="index">{{item.name}}</p></span>
