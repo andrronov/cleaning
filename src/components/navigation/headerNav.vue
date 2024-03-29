@@ -8,9 +8,9 @@
          </a>
        </div>
        <div class="flex sm:hidden">
-         <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-100" @click="mobileMenuOpen = true">
+         <button type="button" tabindex="0" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-100" @click="mobileMenuOpen = true">
            <span class="sr-only">Open main menu</span>
-           <Bars3Icon class="h-6 w-6" :class="mobileMenuOpen ? 'text-black' : 'text-white'" aria-hidden="true" />
+           <Bars3Icon class="h-6 w-6" :class="mobileMenuOpen ? 'text-black' : 'text-white'" />
          </button>
        </div>
        <PopoverGroup class="hidden sm:flex sm:gap-x-12">

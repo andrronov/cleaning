@@ -208,7 +208,9 @@ const totalPrice = computed(() => {
     price = 3990 + ((form.cleaningInfo.areaCount-1) * 500)
     if(form.cleaningInfo.areaCount > 4){price = 5590}
     if(form.typesCleaning.selected === 'Генеральная'){
-      form.cleaningInfo.areaCount < 65 ? price = 13500 : price = 13500 + ((form.cleaningInfo.areaCount-65) * 210)
+      form.cleaningInfo.areaCount <= 40 ? price = 6000 : price = 6000 + ((form.cleaningInfo.areaCount-40) * 116.666)
+      if(form.cleaningInfo.areaCount === 70){price=9500}if(form.cleaningInfo.areaCount === 90){price=12000}if(form.cleaningInfo.areaCount > 90){price = 12000 + ((form.cleaningInfo.areaCount-90) * 116.666)}
+      if(form.cleaningInfo.areaCount >= 100){price = form.cleaningInfo.areaCount * 160}
     } else if(form.typesCleaning.selected === 'После строительства') {
       form.cleaningInfo.areaCount < 65 ? price = 15600 : price = 15600 + ((form.cleaningInfo.areaCount-65) * 240)
     }
@@ -238,8 +240,8 @@ const totalPrice = computed(() => {
   form.additional.selected.forEach(item => addings.push(item.price))
   price += addings.reduce((acc, number) => acc + number)
 
-  price = price - (price / 100 * form.howOften.selected).toFixed(0)
-  return price
+  price = price - (price / 100 * form.howOften.selected).toFixed()
+  return price.toFixed()
 })
 
 const form = reactive({
