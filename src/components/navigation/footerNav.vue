@@ -9,7 +9,7 @@
             <a href="https://wa.me/79055836008">
                <img src="/img/whatsapp.svg" class="text-white w-10 h-10" alt="">
             </a>
-            <a href="https://wa.me/78154088111">
+            <a href="https://wa.me/79154088111">
                <img src="/img/whatsapp.svg" class="text-white w-10 h-10" alt="">
             </a>
             <a href="https://t.me/NairaV">
