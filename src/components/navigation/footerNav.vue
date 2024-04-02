@@ -12,7 +12,7 @@
             <a href="https://wa.me/79773789259">
                <img src="/img/whatsapp.svg" class="text-white w-10 h-10" alt="">
             </a>
-            <a href="https://t.me/NairaV">
+            <a href="https://t.me/ecocleaningM">
                <img src="/img/telegram.svg" class="text-white w-10 h-10" alt="">
             </a>
          </div>
