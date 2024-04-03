@@ -8,8 +8,8 @@
               <form class="w-full mb-32">
                
                <div class="max-w-7xl mx-auto mb-8">
-                  <label for="countries" class="block mb-2 text-sm sm:text-lg font-medium text-gray-900 dark:text-white">Тип уборки</label>
-                  <select v-model="form.typesCleaning.selected" id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-500 dark:focus:border-orange-500">
+                  <label  class="block mb-2 text-sm sm:text-lg font-medium text-gray-900 dark:text-white">Тип уборки</label>
+                  <select v-model="form.typesCleaning.selected" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-500 dark:focus:border-orange-500">
                   <option v-for="(type, index) in form.typesCleaning.array" :key="index" :value="type">{{type}}</option>
                   </select>
                </div>
@@ -17,31 +17,33 @@
                <div class="max-w-7xl mx-auto flex flex-col">
                  <p v-if="form.typesCleaning.selected === 'После строительства'" class="text-red-800">Доставка оборудования в пределах МКАД - 2000 руб.
                    За пределы МКАД - от 2500 руб.</p>
-                  <div class="flex flex-row items-center gap-10 sm:gap-20 mb-8">
-                     <div class="flex flex-col items-start gap-4">
+                  <div class="flex flex-row items-center gap-5 sm:gap-10 mb-8">
+                     <div class="flex flex-col w-1/2 items-start gap-4">
                         <div>
-                           <label for="countries" class="block mb-2 text-sm sm:text-lg font-medium text-gray-900 dark:text-white">Где будет проходить уборка</label>
-                           <select v-model="form.cleaningInfo.selected" id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-500 dark:focus:border-orange-500">
+                           <label class="block mb-2 text-sm sm:text-lg font-medium text-gray-900 dark:text-white">Где будет проходить уборка</label>
+                           <select v-model="form.cleaningInfo.selected" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-500 dark:focus:border-orange-500">
                              <option v-for="(type, index) in form.cleaningInfo.where" :key="index" :value="type">{{type}}</option>
                              </select>
                         </div>
-                        <div>
+                        <div class="w-full">
                           <label class="block mb-2 text-sm sm:text-lg font-medium text-gray-900 dark:text-white" v-if="form.cleaningInfo.selected == 'Квартира' && form.typesCleaning.selected == 'Поддерживающая'">Кол-во комнат</label>
                           <label class="block mb-2 text-sm sm:text-lg font-medium text-gray-900 dark:text-white" v-else>Площадь (кв/м)</label>
-                          <div class="relative flex items-center">
-                              <button type="button" @click="form.cleaningInfo.areaCount --" :disabled="form.cleaningInfo.areaCount < 2" id="decrement-button" data-input-counter-decrement="bedrooms-input" class="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-s-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
+                          <div class="relative flex w-full sm:w-1/2 items-center">
+                              <!-- <button type="button" @click="form.cleaningInfo.areaCount --" :disabled="form.cleaningInfo.areaCount < 2" id="decrement-button" data-input-counter-decrement="bedrooms-input" class="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-s-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
                                   <svg class="w-3 h-3 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
                                       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h16"/>
                                   </svg>
-                              </button>
-                              <input type="text" id="bedrooms-input" data-input-counter data-input-counter-min="1" aria-describedby="helper-text-explanation" class="bg-gray-50 border-x-0 border-gray-300 h-11 font-medium text-center text-gray-900 text-sm focus:ring-orange-500 focus:border-orange-500 block w-full pb-6 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-500 dark:focus:border-orange-500" placeholder="" :value="form.cleaningInfo.areaCount" required />
-                              <div class="absolute bottom-1 start-1/2 -translate-x-1/2 rtl:translate-x-1/2 flex items-center text-[8px] text-gray-400 space-x-1 rtl:space-x-reverse">
+                              </button> -->
+                              <input type="number" v-model="form.cleaningInfo.areaCount" min="1" max="5" v-if="form.cleaningInfo.selected == 'Квартира' && form.typesCleaning.selected == 'Поддерживающая'" class="bg-gray-50 border-x-0 border-gray-300 font-medium text-center h-10 text-gray-900 text-lg focus:ring-orange-500 focus:border-orange-500 block w-full dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-500 dark:focus:border-orange-500" required />
+                              <input type="number" v-model="form.cleaningInfo.areaCount" v-else class="bg-gray-50 border-x-0 border-gray-300 font-medium text-center h-10 text-gray-900 text-lg focus:ring-orange-500 focus:border-orange-500 block w-full dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-500 dark:focus:border-orange-500" required />
+                              
+                              <!-- <div class="absolute bottom-1 start-1/2 -translate-x-1/2 rtl:translate-x-1/2 flex items-center text-[8px] text-gray-400 space-x-1 rtl:space-x-reverse">
                                   <svg class="w-2.5 h-2.5 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                                       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8v10a1 1 0 0 0 1 1h4v-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5h4a1 1 0 0 0 1-1V8M1 10l9-9 9 9"/>
                                   </svg>
                                   <span v-if="form.cleaningInfo.selected == 'Квартира' && form.typesCleaning.selected == 'Поддерживающая'">Комнат</span>
-                              </div>
-                              <button type="button" v-if="form.cleaningInfo.selected == 'Квартира' && form.typesCleaning.selected == 'Поддерживающая'" @click="form.cleaningInfo.areaCount ++" :disabled="form.cleaningInfo.areaCount > 4" id="increment-button" data-input-counter-increment="bedrooms-input" class="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-e-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
+                              </div> -->
+                              <!-- <button type="button" v-if="form.cleaningInfo.selected == 'Квартира' && form.typesCleaning.selected == 'Поддерживающая'" @click="form.cleaningInfo.areaCount ++" :disabled="form.cleaningInfo.areaCount > 4" id="increment-button" data-input-counter-increment="bedrooms-input" class="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-e-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
                                   <svg class="w-3 h-3 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
                                       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
                                   </svg>
@@ -50,25 +52,27 @@
                                   <svg class="w-3 h-3 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
                                       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
                                   </svg>
-                              </button>
+                              </button> -->
                           </div>
+                          <p class="text-sm text-gray-800" v-if="form.typesCleaning.selected == 'После строительства' && form.cleaningInfo.selected == 'Квартира'">Oкна включены в стоимость</p>
+                          <p class="text-sm text-gray-800" v-if="form.typesCleaning.selected == 'После строительства' && form.cleaningInfo.selected == 'Дом'">Oкна НЕ включены в стоимость, расчет идет отдельно</p>
                         </div>
                      </div>
-                     <div class="flex flex-col items-start gap-4">
+                     <div class="flex w-1/2 flex-col items-start gap-4">
                         <div v-if="form.typesCleaning.selected !== 'После строительства'">
                            <label class="block mb-2 text-sm sm:text-lg font-medium text-gray-900 dark:text-white">Вариант уборки</label>
-                           <select v-model="form.variantsCleaning.selected" id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-500 dark:focus:border-orange-500">
+                           <select v-model="form.variantsCleaning.selected" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-500 dark:focus:border-orange-500">
                              <option v-for="(type, index) in form.variantsCleaning.array" :key="index" :value="type">{{type}}</option>
                              </select>
                         </div>
-                        <label class="block mb-2 text-sm sm:text-lg font-medium text-gray-900 dark:text-white">Санузлов</label>
+                        <label class="block mb-px text-sm sm:text-lg font-medium text-gray-900 dark:text-white">Санузлов</label>
                           <div class="relative flex items-center">
                               <button type="button" @click="form.cleaningInfo.washRooms --" :disabled="form.cleaningInfo.washRooms < 2" id="decrement-button" data-input-counter-decrement="bedrooms-input" class="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-s-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
                                   <svg class="w-3 h-3 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
                                       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h16"/>
                                   </svg>
                               </button>
-                              <input type="text" id="bedrooms-input" data-input-counter data-input-counter-min="1" aria-describedby="helper-text-explanation" class="bg-gray-50 border-x-0 border-gray-300 h-full font-medium text-center text-gray-900 text-sm focus:ring-orange-500 focus:border-orange-500 block w-full pb-6 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-500 dark:focus:border-orange-500" placeholder="" :value="form.cleaningInfo.washRooms" required />
+                              <input type="text" id="bedrooms-input" data-input-counter data-input-counter-min="1" aria-describedby="helper-text-explanation" class="bg-gray-50 border-x-0 border-gray-300 h-full font-medium text-center text-gray-900 text-lg focus:ring-orange-500 focus:border-orange-500 block w-full py-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-500 dark:focus:border-orange-500" placeholder="" :value="form.cleaningInfo.washRooms" required />
                               <button type="button" @click="form.cleaningInfo.washRooms ++" :disabled="form.cleaningInfo.washRooms > 4" id="increment-button" data-input-counter-increment="bedrooms-input" class="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-e-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
                                   <svg class="w-3 h-3 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
                                       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
@@ -79,8 +83,8 @@
                   </div>
                   <!-- <p class="mb-2 text-sm sm:text-lg font-medium text-gray-900 dark:text-white">Дополнительно</p> -->
                   <div class="mb-8">
-                    <label for="countries" class="block mb-2 text-sm sm:text-lg font-medium text-gray-900 dark:text-white">Дополнительно</label>
-                    <select multiple v-model="form.additional.selected" id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-500 dark:focus:border-orange-500">
+                    <label  class="block mb-2 text-sm sm:text-lg font-medium text-gray-900 dark:text-white">Дополнительно</label>
+                    <select multiple v-model="form.additional.selected" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-500 dark:focus:border-orange-500">
                       <option v-for="(item, index) in form.additional.array" :key="index" :value="item">{{item.name}}</option>
                       </select>
                  </div>
@@ -171,7 +175,7 @@
                       <p v-else class="text-lg sm:text-xl font-medium">Площадь: {{form.cleaningInfo.areaCount}} кв/м</p>
                       <p class="text-lg sm:text-xl font-medium">Санузлов: {{form.cleaningInfo.washRooms}}</p>
                       <span class="text-lg sm:text-xl font-medium">Дополнительно: <p class="text-gray-800 text-base sm:text-lg underline" v-for="(item, index) in form.additional.selected" :key="index">{{item.name}}</p></span>
-                      <p class="text-lg sm:text-xl font-medium">Дата: {{form.cleaningInfo.areaCount}}</p>
+                      <p class="text-lg sm:text-xl font-medium">Дата: {{form.necessarily.date}}</p>
                     </div>
                     <div class="bg-dev-500 text-white flex flex-col justify-between p-2 items-center w-1/3 sm:w-1/4 rounded-xl">
                       <p class="text-xl sm:text-2xl font-medium mb-4">Итого</p>
@@ -190,7 +194,7 @@
 </template>
 
 <script setup>
-import { computed, reactive } from 'vue'
+import { computed, reactive, ref } from 'vue'
 import defModal from './UI/defModal.vue'
 import defButton from './UI/defButton.vue'
 
@@ -208,11 +212,9 @@ const totalPrice = computed(() => {
     price = 3990 + ((form.cleaningInfo.areaCount-1) * 500)
     if(form.cleaningInfo.areaCount > 4){price = 5590}
     if(form.typesCleaning.selected === 'Генеральная'){
-      form.cleaningInfo.areaCount <= 40 ? price = 6000 : price = 6000 + ((form.cleaningInfo.areaCount-40) * 116.666)
-      if(form.cleaningInfo.areaCount === 70){price=9500}if(form.cleaningInfo.areaCount === 90){price=12000}if(form.cleaningInfo.areaCount > 90){price = 12000 + ((form.cleaningInfo.areaCount-90) * 116.666)}
-      if(form.cleaningInfo.areaCount >= 100){price = form.cleaningInfo.areaCount * 160}
+      price = form.cleaningInfo.areaCount * 150
     } else if(form.typesCleaning.selected === 'После строительства') {
-      form.cleaningInfo.areaCount < 65 ? price = 15600 : price = 15600 + ((form.cleaningInfo.areaCount-65) * 240)
+      price = form.cleaningInfo.areaCount * 240
     }
   } 
   else{
@@ -220,9 +222,9 @@ const totalPrice = computed(() => {
       price = form.cleaningInfo.areaCount * 50
     }
     else if(form.typesCleaning.selected === 'Генеральная'){
-      form.cleaningInfo.areaCount < 65 ? price = 13500 : price = 13500 + ((form.cleaningInfo.areaCount-65) * 210)
+      price = form.cleaningInfo.areaCount * 210
     } else if(form.typesCleaning.selected === 'После строительства') {
-      form.cleaningInfo.areaCount < 65 ? price = 15600 : price = 15600 + ((form.cleaningInfo.areaCount-65) * 240)
+      price = form.cleaningInfo.areaCount * 240
     }
   }
   if(form.cleaningInfo.washRooms > 1){
