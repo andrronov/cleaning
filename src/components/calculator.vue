@@ -15,8 +15,8 @@
                </div>
 
                <div class="max-w-7xl mx-auto flex flex-col">
-                 <p v-if="form.typesCleaning.selected === 'После строительства'" class="text-red-800">Доставка оборудования в пределах МКАД - 2000 руб.
-                   За пределы МКАД - от 2500 руб.</p>
+                 <p v-if="form.typesCleaning.selected === 'После строительства'" class="text-red-800">Доставка оборудования в пределах МКАД - 1000 руб.
+                   За пределы МКАД - от 1500 руб.</p>
                   <div class="flex flex-row items-center gap-5 sm:gap-10 mb-8">
                      <div class="flex flex-col w-1/2 items-start gap-4">
                         <div>
@@ -306,13 +306,13 @@ const form = reactive({
   howOften: {
     selected: 0,
     array: [{
-      name: 'Раз в неделю 15%',
+      name: 'Раз в неделю (скидка 15%)',
       discount: 15
     }, {
-      name: 'Раз в две недели 10%',
+      name: 'Раз в две недели (скидка 10%)',
       discount: 10
     }, {
-      name: 'Раз в месяц 5%',
+      name: 'Раз в месяц (скидка 5%)',
       discount: 5
     }, {
       name: 'Один раз',

@@ -3,7 +3,7 @@
      <nav class="mx-auto max-w-7xl flex items-center justify-between sm:px-8" aria-label="Global">
        <div class="flex sm:flex-0">
          <a href="/" class="-m-1.5 p-1.5">
-           <span>NaVi Cleaning</span>
+           <span>NoVa Cleaning</span>
            <!-- <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="" /> -->
          </a>
        </div>
@@ -46,7 +46,7 @@
          <a href="#" class="text-sm font-semibold leading-6 text-gray-100">Company</a> -->
        </PopoverGroup>
        <div class="hidden sm:flex flex-col items-center sm:justify-end">
-         <a href="tel:89773788955" class="text-sm font-semibold leading-6 text-gray-100">8- 977-378-89-55</a>
+         <a href="tel:89773788955" class="text-sm font-semibold leading-6 text-gray-100">8- 977-137-91-72</a>
          <defButton @click="toSection('form')" class="bg-dev-10 text-txt-100">Оставить заявку</defButton>
        </div>
      </nav>

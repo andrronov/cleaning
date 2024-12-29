@@ -7,7 +7,7 @@
             <p class="text-xl sm:text-2xl font-semibold">Адрес</p>
             <p class="mb-8 text-lg sm:text-xl">г. Москва, пос. Воскресненское 34</p>
             <p class="text-xl sm:text-2xl font-semibold">Телефон</p>
-            <a href="tel:+79773788955" class="mb-8 text-lg sm:text-xl">8-977-378-89-55</a>
+            <a href="tel:+79773788955" class="mb-8 text-lg sm:text-xl">8-977-137-91-72</a>
             <p class="text-xl sm:text-2xl font-semibold">Почта</p>
             <a href="mailto:navicleaning@inbox.ru" class="text-lg sm:text-xl">navicleaning@inbox.ru</a>
          </div>
