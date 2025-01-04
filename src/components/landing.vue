@@ -194,20 +194,20 @@ const popularServices = [
 ]
 const team = [
   {
-    name: 'Вита',
-    img: '/img/vita.png',
+    // name: 'Вита',
+    img: '/img/vita-ui.png',
   },
   {
-    name: 'Наталья Алексеевна',
-    img: '/img/natalya-alexeevna.png',
+    // name: 'Наталья Алексеевна',
+    img: '/img/natasha-ui.png',
   },
+  // {
+  //   name: 'Виктория Анатольевна',
+  //   img: '/img/viktoria-anatolyevna.png',
+  // },
   {
-    name: 'Виктория Анатольевна',
-    img: '/img/viktoria-anatolyevna.png',
-  },
-  {
-    name: 'Мадина',
-    img: '/img/madina.png',
+    // name: 'Мадина',
+    img: '/img/madina-ui.png',
   },
 ]
 const rates = [

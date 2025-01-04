@@ -9,7 +9,7 @@
             <p class="text-xl sm:text-2xl font-semibold">Телефон</p>
             <a href="tel:+79773788955" class="mb-8 text-lg sm:text-xl">8-977-137-91-72</a>
             <p class="text-xl sm:text-2xl font-semibold">Почта</p>
-            <a href="mailto:navicleaning@inbox.ru" class="text-lg sm:text-xl">navicleaning@inbox.ru</a>
+            <a href="mailto:novacleaning8@yandex.ru" class="text-lg sm:text-xl">novacleaning8@yandex.ru</a>
          </div>
       </div>
    </div>

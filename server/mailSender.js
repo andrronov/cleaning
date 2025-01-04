@@ -22,7 +22,7 @@ class MailSender{
             subject: `Новая заявка от ${letter?.necessarily?.name}, ${letter?.necessarily?.phone}`,
             html: `
                   <div style="display: flex; flex-direction:column; background-color: #FFA800; padding: 10px; color: white">
-                     <h1 style="font-style: italic; font-size: 1.5rem; justify-self: center;">NaVi Cleaning</h1>
+                     <h1 style="font-style: italic; font-size: 1.5rem; justify-self: center;">NoVa Cleaning</h1>
                      <p style="font-size:1.5rem">Заявка из калькулятора расчета стоимости.</p>
                      <p style="font-size:1.15rem">Имя: ${letter?.necessarily?.name}</p>
                      <p style="font-size:1.15rem">Телефон: ${letter?.necessarily?.phone}</p>
@@ -43,7 +43,7 @@ class MailSender{
          subject: `Новая заявка от ${letter?.name}, ${letter?.phone}`,
          html: `
                <div style="display: flex; flex-direction:column; background-color: #FFA800; padding: 10px; color: white">
-                  <h1 style="font-style: italic; font-size: 1.5rem; justify-self: center;">NaVi Cleaning</h1>
+                  <h1 style="font-style: italic; font-size: 1.5rem; justify-self: center;">NoVa Cleaning</h1>
                   <p style="font-size:1.15rem">Имя: ${letter?.name}</p>
                   <p style="font-size:1.15rem">Телефон: ${letter?.phone}</p>
                </div>
