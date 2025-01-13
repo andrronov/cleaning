@@ -126,7 +126,7 @@
               <defModal :isOpen="opened" @close-modal="opened = false">
                 <img :src="img" alt="">
               </defModal>
-              <div class="w-full h-1/4 sm:h-14 backdrop-blur-sm absolute bottom-0 sm:-bottom-12"></div>
+              <div class="w-full h-1/4 sm:h-14 xs:backdrop-blur-sm absolute bottom-0 sm:-bottom-12"></div>
             </div>
           </div>
         </div>

@@ -40,8 +40,8 @@
            </transition>
          </Popover>
          
-         <button v-for="(link, index) in props.headers" :key="index" :href="link.href" @click="link.href ? $router.push(link.href) : toSection(link.section)" class="text-sm font-semibold leading-6 text-gray-100">{{ link.name }}</button>
-         
+         <button v-for="(link, index) in props.headers" :key="index" :href="link.href" @click="link.href ? $router.push(link.href) : isCalculatorModalOpen = true" class="text-sm font-semibold leading-6 text-gray-100">{{ link.name }}</button>
+        
          <!-- <a href="#" class="text-sm font-semibold leading-6 text-gray-100">Marketplace</a>
          <a href="#" class="text-sm font-semibold leading-6 text-gray-100">Company</a> -->
        </PopoverGroup>
@@ -77,18 +77,20 @@
                   </DisclosureButton>
                  </DisclosurePanel>
                </Disclosure>
-               <!-- <a href="#" class="-mx-3 block rounded-sm px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Company</a> -->
-               
-               <button v-for="(link, index) in props.headers" @click.prevent="link.href ? $router.push(link.href) : toSection(link.section)" :key="index" class="-mx-3 block rounded-sm px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">{{ link.name }}</button>
+               <button v-for="(link, index) in props.headers" @click.prevent="link.href ? $router.push(link.href) : mobileMenuOpen = false; isCalculatorModalOpen = true" :key="index" class="-mx-3 block rounded-sm px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">{{ link.name }}</button>
              </div>
              <div class="py-6">
-               <!-- <a href="#" class="-mx-3 block rounded-sm px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Log in</a> -->
               <defButton @click="toSection('form')" class="border-2 border-black -mx-4">Оставить заявку</defButton>
               </div>
            </div>
          </div>
        </DialogPanel>
      </Dialog>
+
+     <calculator 
+     :isOpen="isCalculatorModalOpen"
+      @close-modal="isCalculatorModalOpen = false"
+      />
    </header>
  </template>
  
@@ -117,7 +119,8 @@
    XMarkIcon,
  } from '@heroicons/vue/24/outline'
  import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/vue/20/solid'
- 
+ import calculator from '../calculator.vue'
+
  const products = [
    { name: 'Уборка в квартире', description: '3 вида уборки', href: '/apartment', icon: ChartPieIcon },
    { name: 'Уборка в коттедже', description: 'Чистым будет каждый уголок', href: '/cottage', icon: CursorArrowRaysIcon },
@@ -129,6 +132,8 @@
  ]
 
 import defButton from '../UI/defButton.vue'
+
+const isCalculatorModalOpen = ref(false);
 
 function toSection(el){
   mobileMenuOpen.value = false

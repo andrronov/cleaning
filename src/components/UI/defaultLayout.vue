@@ -90,8 +90,7 @@ const headers = [
   //   href: '#'
   // },
   {
-    name: "Сертификаты",
-    section: "sertificates",
+    name: "Расчет стоимости",
   },
   {
     name: "Цены",
