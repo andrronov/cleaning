@@ -117,7 +117,7 @@ const form = reactive({
 async function sendForm(){
   if(form.isAgreed && form.name && form.phone){
     form.isLoading = true
-    const res = await fetch(import.meta.env.VITE_SITE_PORT + 'api/application', {
+    const res = await fetch("https://nova-clean.ru/" + 'api/application', {
     method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8'
