@@ -585,6 +585,7 @@ const form = reactive({
 });
 
 async function sendForm() {
+  console.log(form)
   if(!form.necessarily.date || !form.necessarily.phone || !form.necessarily.name){
     return;
   }
