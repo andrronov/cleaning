@@ -415,6 +415,7 @@
                       >
                     </div>
                   </div>
+                  <span>{{form.text}}</span>
                 </div>
               </div>
             </form>
@@ -584,6 +585,10 @@ const form = reactive({
 });
 
 async function sendForm() {
+  if(!form.necessarily.date || !form.necessarily.phone || !form.necessarily.name){
+    return;
+  }
+
   const res = await fetch("https://nova-clean.ru/" + "api/application", {
     method: "POST",
     headers: {
