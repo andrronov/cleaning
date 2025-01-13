@@ -695,14 +695,11 @@ const services = [
 
 const sertificates = [
   {
-    img: '/img/sert1.jpg'
+    img: '/img/sert4.jpg'
   },
   {
-    img: '/img/sert2.jpg'
-  },
-  {
-    img: '/img/sert3.jpg'
-  },
+    img: '/img/sert5.jpg'
+  }
 ]
 const opened = ref(false)
 const img = ref(null)
