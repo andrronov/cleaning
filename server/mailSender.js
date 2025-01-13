@@ -15,12 +15,6 @@ class MailSender{
    }
 
    async sendEmail(letter) {
-      console.log(process.env.VITE_MAIL_HOST,
-         process.env.VITE_MAIL_PORT,
-         
-         
-          process.env.VITE_MAIL_USER,
-          process.env.VITE_MAIL_PASS,)
       if((letter.hasOwnProperty('isCalculator'))){
          const info = await this.transporter.sendMail({
             from: process.env.VITE_MAIL_USER,
