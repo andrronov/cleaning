@@ -206,6 +206,7 @@
                         class="block text-sm font-medium mb-2"
                         >Номер телефона</label
                       >
+                      <!-- СДЕЛАЙ ЧТОБ В ХЕДЕРЕ БЫЛА КНОПКА С КАЛЬКУЛЯТОРОМ -->
                       <input
                         v-model="form.necessarily.phone"
                         required
