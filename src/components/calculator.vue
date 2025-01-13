@@ -408,8 +408,7 @@
                         {{ totalPrice }}₽
                       </p>
                       <defButton
-                        @click="sendForm"
-                        type="submit"
+                        @click.prevent="sendForm"
                         class="border-2 px-5 border-white rounded-xl"
                         >Заказать</defButton
                       >
