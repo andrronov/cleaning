@@ -124,7 +124,7 @@
                         aria-describedby="helper-text-explanation"
                         class="bg-gray-50 border border-gray-300 rounded-lg h-full font-medium text-center text-gray-900 text-lg focus:ring-orange-500 focus:border-orange-500 block w-full py-2"
                         placeholder=""
-                        :value="form.cleaningInfo.washRooms"
+                        v-model="form.cleaningInfo.washRooms"
                         required
                       />
                     </div>
