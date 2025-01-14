@@ -93,7 +93,7 @@ const products = [
     description: "Стекло будет блестеть!",
     href: "/windows",
     icon: SquaresPlusIcon,
-    price: 4000
+    price: 1000
   },
   {
     name: "Здоровый малыш",
@@ -112,7 +112,7 @@ const products = [
   {
     name: 'Генеральная уборка',
     href: '/general',
-    price: 13500
+    price: 7000
   },
   {
     name: 'Уборка кухни',
@@ -127,12 +127,12 @@ const products = [
   {
     name: 'Уборка после ремонта',
     href: '/repair',
-    price: 15600
+    price: 9000
   },
   {
     name: 'Глажка белья и одежды',
     href: '/clothes',
-    price: 3000
+    price: 1000
   },
 ];
 </script>
